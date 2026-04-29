@@ -13,16 +13,15 @@ export default function Home() {
       <DesignerSpotlights />
       <Infographics />
 
-      {/* Footer */}
-      <footer className="py-12 px-4 border-t border-charcoal-light">
+      <footer className="py-12 px-4 border-t border-border">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="font-heading text-2xl text-silver mb-2">
+          <p className="font-heading text-2xl text-charcoal mb-2">
             1995—1999
           </p>
-          <p className="font-body text-xs text-silver/50">
+          <p className="font-body text-xs text-silver">
             Fashion Culture & History — An Interactive Exploration
           </p>
-          <p className="font-body text-xs text-silver/30 mt-4">
+          <p className="font-body text-xs text-silver/50 mt-4">
             Image archive references: FirstView.com
           </p>
         </div>

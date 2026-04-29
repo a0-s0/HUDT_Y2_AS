@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full bg-charcoal text-stark-white">
+      <body className="min-h-full bg-offwhite text-charcoal">
         {children}
       </body>
     </html>

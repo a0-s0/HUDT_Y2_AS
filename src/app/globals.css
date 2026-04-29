@@ -3,13 +3,16 @@
 @theme inline {
   --color-charcoal: #1A1A1A;
   --color-charcoal-light: #2C2C2C;
+  --color-offwhite: #F5F0E8;
   --color-beige: #C4B5A0;
   --color-beige-light: #D4C5B2;
   --color-beige-dark: #A89880;
-  --color-silver: #C0C0C0;
-  --color-silver-light: #E8E8E8;
-  --color-stark-white: #FAFAFA;
+  --color-border: #E0D5C5;
+  --color-silver: #888888;
+  --color-silver-light: #B0B0B0;
   --color-gold: #B8960C;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F0EDE8;
 
   --font-heading: var(--font-eb-garamond);
   --font-body: var(--font-inter);
@@ -27,35 +30,14 @@ html {
 
 body {
   font-family: var(--font-inter);
-  background-color: #1A1A1A;
-  color: #FAFAFA;
+  background-color: #F5F0E8;
+  color: #1A1A1A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-eb-garamond);
-}
-
-@keyframes chrome-shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.chrome-text {
-  background: linear-gradient(
-    90deg,
-    #C0C0C0 0%,
-    #FFFFFF 25%,
-    #C0C0C0 50%,
-    #E8E8E8 75%,
-    #C0C0C0 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: chrome-shimmer 4s linear infinite;
 }
 
 .scrollbar-hide {
@@ -68,7 +50,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass {
-  background: rgba(26, 26, 26, 0.7);
+  background: rgba(245, 240, 232, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(26, 26, 26, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
