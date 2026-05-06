@@ -23,7 +23,7 @@ export function Timeline() {
           <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
             Timeline
           </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
+          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg text-center">
             Click a year to reveal the cultural events and fashion movements
             that defined it.
           </p>

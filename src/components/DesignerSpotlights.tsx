@@ -25,8 +25,7 @@ export function DesignerSpotlights() {
             Designer Spotlights
           </h2>
           <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
-            Five visionaries who defined the decade. Click to reveal archive
-            insights.
+            Five visionaries who defined the decade.
           </p>
         </motion.div>
 
@@ -42,21 +41,21 @@ export function DesignerSpotlights() {
               className="relative group cursor-pointer"
             >
               <div className="relative h-[480px] overflow-hidden bg-white rounded-xl">
-                <div className="relative z-10 p-10">
-                  <p className="font-body text-silver tracking-widest uppercase text-xs mb-4">
+                <div className="relative z-10 p-12">
+                  <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-4">
                     {designer.nationality}
                   </p>
-                  <h3 className="font-heading text-[16px] md:text-[20px] font-bold uppercase text-deep-brown mb-4 whitespace-nowrap overflow-hidden text-ellipsis px-4">
+                  <h3 className="font-heading text-[14px] md:text-[16px] font-bold uppercase text-deep-brown mb-4 whitespace-nowrap overflow-hidden text-ellipsis px-6">
                     {designer.name}
                   </h3>
-                  <p className="font-body text-silver text-sm px-4">{designer.period}</p>
+                  <p className="font-body text-silver text-[10px] px-6">{designer.period}</p>
                 </div>
 
-                <div className="relative z-10 px-10 pb-10 flex-1">
-                  <p className="text-beige-dark text-sm font-medium mb-4">
+                <div className="relative z-10 px-12 pb-12 flex-1">
+                  <p className="text-beige-dark text-[10px] font-medium mb-4">
                     {designer.title}
                   </p>
-                  <p className="font-body text-silver text-sm leading-relaxed mb-6 line-clamp-3">
+                  <p className="font-body text-silver text-[10px] leading-relaxed mb-6 line-clamp-3">
                     {designer.description}
                   </p>
                 </div>

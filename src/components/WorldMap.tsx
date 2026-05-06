@@ -153,7 +153,7 @@ export function WorldMap() {
                   onClick={() => setSelectedEvent(event)}
                 />
 
-                {/* Year label only - cleaner look */}
+                {/* Year label only - cleaner look 
                 <text
                   x={event.x}
                   y={event.y - radius - 4}
@@ -165,6 +165,7 @@ export function WorldMap() {
                 >
                   {event.year}
                 </text>
+                */}
               </g>
             );
           })}
@@ -341,11 +342,11 @@ export function WorldMap() {
         </AnimatePresence>
       </div>
 
-      {!hoveredEvent && !selectedEvent && (
-        <p className="mt-4 font-body text-silver text-sm text-center">
-          Click on the spots to explore cultural events
-        </p>
-      )}
+        {!hoveredEvent && !selectedEvent && (
+          <p className="mt-4 font-body text-silver text-sm text-center">
+            &nbsp;
+          </p>
+        )}
     </div>
   );
 }
