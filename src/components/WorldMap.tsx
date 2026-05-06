@@ -4,16 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { culturalImpactData, CulturalEvent } from "@/data/culturalImpactData";
 
-// Realistic city coordinates for 3024x1964 Mercator projection - FILLS ENTIRE VIEWBOX
+// City coordinates for 3024x1964 Mercator projection
 const fashionCapitals = [
-  { id: "new-york", name: "New York", x: 907, y: 1372, label: "USA" },
-  { id: "paris", name: "Paris", x: 1418, y: 1200, label: "France" },
-  { id: "london", name: "London", x: 1381, y: 1150, label: "UK" },
-  { id: "milan", name: "Milan", x: 1456, y: 1274, label: "Italy" },
-  { id: "tokyo", name: "Tokyo", x: 2363, y: 1372, label: "Japan" },
+  { id: "new-york", name: "New York", x: 560, y: 686, label: "USA" },
+  { id: "paris", name: "Paris", x: 1418, y: 600, label: "France" },
+  { id: "london", name: "London", x: 1381, y: 575, label: "UK" },
+  { id: "milan", name: "Milan", x: 1456, y: 637, label: "Italy" },
+  { id: "tokyo", name: "Tokyo", x: 2363, y: 686, label: "Japan" },
 ];
 
-// Year-to-color mapping for the bar chart overlay
+// Year-to-color mapping
 const yearColors: Record<number, string> = {
   1995: "#3D2B1F",
   1996: "#C4B5A0",
@@ -45,7 +45,7 @@ export function WorldMap() {
     ? culturalImpactData.filter((e) => e.year === yearFilter)
     : culturalImpactData;
 
-  // Group events by year for the bar chart overlay
+  // Group events by year
   const eventsByYear = culturalImpactData.reduce((acc, event) => {
     if (!acc[event.year]) acc[event.year] = 0;
     acc[event.year] += event.impact;
@@ -99,36 +99,36 @@ export function WorldMap() {
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Realistic world map - FILLS ENTIRE 3024x1964 viewBox with 2mm stroke */}
+            {/* World map - 3024x1964 viewBox - 2mm stroke (7.56px) */}
             <g stroke="#E0D5C5" strokeWidth="7.56" fill="none">
-              {/* North America - FILLS top left area */}
-              <path d="M378,980 L528,910 L700,960 L836,1020 L907,1092 L935,1224 L907,1372 L858,1488 L786,1568 L693,1560 L605,1488 L536,1372 L490,1240 L455,1120 Z" />
+              {/* North America */}
+              <path d="M378,490 L528,455 L700,480 L836,510 L907,546 L935,612 L907,686 L858,744 L786,784 L693,780 L605,744 L536,686 L490,620 L455,560 Z" />
               {/* Central America */}
-              <path d="M605,1784 L661,1836 L682,1904 L661,1988 L605,1950 Z" />
-              {/* South America - FILLS bottom left */}
-              <path d="M700,2156 L806,2100 L950,2184 L1066,2336 L1018,2480 L937,2548 L841,2480 L775,2336 L728,2172 Z" />
-              {/* Europe - FILLS top center */}
-              <path d="M1286,930 L1328,912 L1381,926 L1434,944 L1476,1004 L1466,1070 L1434,1120 L1418,1200 L1381,1150 L1364,1098 L1331,1050 Z" />
+              <path d="M605,892 L661,918 L682,952 L661,994 L605,975 Z" />
+              {/* South America */}
+              <path d="M700,1078 L806,1050 L950,1092 L1066,1168 L1018,1240 L937,1274 L841,1240 L775,1168 L728,1086 Z" />
+              {/* Europe */}
+              <path d="M1286,465 L1328,456 L1381,463 L1434,472 L1476,502 L1466,535 L1434,560 L1418,600 L1381,575 L1364,549 L1331,525 Z" />
               {/* UK/Ireland */}
-              <path d="M1352,1028 L1376,1008 L1381,1050 L1376,1080 L1352,1056 Z" />
-              {/* Africa - FILLS center */}
-              <path d="M1331,1200 L1381,1180 L1434,1200 L1507,1254 L1542,1428 L1512,1672 L1456,1884 L1376,2044 L1296,2000 L1238,1870 L1200,1700 L1254,1380 Z" />
-              {/* Russia/Northern Asia - FILLS top right */}
-              <path d="M1462,686 L1542,666 L1660,682 L1778,696 L1884,712 L1976,730 L2046,764 L2092,818 L2092,872 L2046,922 L1976,942 L1884,930 L1778,916 L1660,902 L1542,888 L1462,850 Z" />
+              <path d="M1352,514 L1376,504 L1381,525 L1376,540 L1352,528 Z" />
+              {/* Africa */}
+              <path d="M1331,600 L1381,590 L1434,600 L1507,627 L1542,714 L1512,836 L1456,942 L1376,1022 L1296,1000 L1238,935 L1200,850 L1218,765 L1254,690 Z" />
+              {/* Russia/Northern Asia */}
+              <path d="M1462,343 L1542,333 L1660,341 L1778,348 L1884,356 L1976,365 L2046,382 L2092,409 L2092,436 L2046,461 L1976,471 L1884,465 L1778,458 L1660,451 L1542,444 L1462,425 Z" />
               {/* Middle East */}
-              <path d="M1507,1254 L1542,1240 L1576,1292 L1576,1350 L1542,1394 L1512,1374 Z" />
+              <path d="M1507,627 L1542,620 L1576,646 L1576,675 L1542,697 L1512,687 Z" />
               {/* South Asia / India */}
-              <path d="M1816,1470 L1868,1428 L1910,1508 L1896,1600 L1848,1652 L1816,1608 Z" />
-              {/* East Asia / China - FILLS center right */}
-              <path d="M2046,1046 L2092,1032 L2156,1050 L2184,1108 L2170,1176 L2132,1222 L2092,1180 L2058,1110 Z" />
+              <path d="M1816,735 L1868,714 L1910,754 L1896,800 L1848,826 L1816,804 Z" />
+              {/* East Asia / China */}
+              <path d="M2046,523 L2092,514 L2156,525 L2184,554 L2170,588 L2132,611 L2092,590 L2058,562 Z" />
               {/* Southeast Asia */}
-              <path d="M2092,1470 L2132,1440 L2156,1508 L2140,1560 L2110,1570 Z" />
-              {/* Japan / Tokyo at x=2363, y=1372 */}
-              <path d="M2308,1294 L2338,1260 L2363,1294 L2363,1372 L2350,1414 L2338,1372 Z" />
-              {/* Australia - FILLS bottom right */}
-              <path d="M2230,3180 L2308,3150 L2363,3176 L2350,3252 L2308,3286 L2262,3252 Z" />
+              <path d="M2092,735 L2132,720 L2156,754 L2140,782 L2110,784 Z" />
+              {/* Japan / Tokyo */}
+              <path d="M2308,647 L2338,630 L2363,647 L2363,686 L2350,707 L2338,686 Z" />
+              {/* Australia */}
+              <path d="M2230,1590 L2308,1575 L2363,1588 L2350,1626 L2308,1643 L2262,1626 Z" />
               {/* New Zealand */}
-              <path d="M2496,3456 L2510,3436 L2515,3488 L2500,3520 Z" />
+              <path d="M2496,1728 L2510,1718 L2515,1746 L2500,1760 Z" />
             </g>
 
             {/* Cultural impact spots */}
@@ -276,7 +276,7 @@ export function WorldMap() {
             )}
           </AnimatePresence>
 
-          {/* Selected event modal - show full details + themes */}
+          {/* Selected event modal */}
           <AnimatePresence>
             {selectedEvent && (
               <motion.div

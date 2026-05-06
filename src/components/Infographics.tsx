@@ -33,6 +33,7 @@ export function Infographics() {
 
   return (
     <section id="infographics" className="py-32 md:py-48 px-4">
+      {/* Title inside constrained container */}
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -45,13 +46,17 @@ export function Infographics() {
             
           </h2>
         </motion.div>
-
-        <div className="mb-20">
-          <WorldMap />
-        </div>
-
-        <div className="h-[15px]"></div>
-
+      </div>
+      
+      {/* WorldMap - OUTSIDE constrained div for full screen */}
+      <div className="mb-20">
+        <WorldMap />
+      </div>
+      
+      <div className="h-[15px]"></div>
+      
+      {/* Rest of content back in constrained container */}
+      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center gap-8 mb-20 max-w-4xl mx-auto">
           {/* Paris vs New York - Smaller centered box */}
           <motion.div
