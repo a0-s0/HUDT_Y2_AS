@@ -62,13 +62,13 @@ export function Infographics() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-6 md:p-8 w-full max-w-2xl"
+            className="bg-white rounded-xl p-6 md:p-8 w-full max-w-xl mx-auto text-center"
           >
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown">
+            <div className="mb-6">
+              <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-4">
                 {activeCity.label}
               </h3>
-              <div className="flex bg-light-gray rounded-lg p-0.5 mx-auto">
+              <div className="flex bg-light-gray rounded-lg p-0.5 justify-center mx-auto inline-flex">
                 <button
                   onClick={() => setCityView("paris")}
                   className={`px-4 py-2 text-sm rounded-md transition-all duration-300 ${

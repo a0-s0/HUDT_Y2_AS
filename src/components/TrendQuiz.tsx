@@ -113,10 +113,10 @@ export function TrendQuiz() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-xl p-6 md:p-8"
+              className="bg-white rounded-xl p-6 md:p-8 text-center"
             >
               <div className="mb-6">
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-center gap-3 mb-3">
                   <span className="font-body text-xs text-silver uppercase tracking-widest">
                     Q{currentQuestion + 1}/{questions.length}
                   </span>
@@ -132,12 +132,12 @@ export function TrendQuiz() {
                   </div>
                 </div>
 
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-deep-brown">
+                <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-deep-brown mb-4">
                   {questions[currentQuestion].question}
                 </h3>
               </div>
 
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center items-center">
                 {questions[currentQuestion].options.map((option, idx) => (
                   <motion.button
                     key={option}

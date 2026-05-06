@@ -21,6 +21,20 @@ const yearColors: Record<number, string> = {
   1999: "#B8960C",
 };
 
+// Event themes mapping
+const eventThemes: Record<string, string[]> = {
+  "Rise of Supermodels": ["Supermodels", "Kate Moss", "Naomi Campbell", "Cindy Crawford", "Fashion Icons"],
+  "Grunge to Minimalism": ["Marc Jacobs", "Grunge", "Minimalism", "Seattle", "Flannel"],
+  "Gucci Revival": ["Tom Ford", "Gucci", "Sexy Minimalism", "Revival", "Luxury"],
+  "Dior Saddle Bag Launch": ["John Galliano", "Dior", "Saddle Bag", "Logo Mania", "It Bag"],
+  "Princess Diana's Death": ["Princess Diana", "Mourning Attire", "Fashion Impact", "1997", "Cultural Shock"],
+  "Alexander McQueen's Rise": ["McQueen", "Givenchy", "British Fashion", "Dark Romanticism", "Innovation"],
+  "Y2K Aesthetic Emerges": ["Y2K", "Futuristic", "Metallics", "Tech Fashion", "1998"],
+  "Gianni Versace Assassination": ["Versace", "1998", "Fashion Legacy", "Tragedy", "Milan"],
+  "Y2K Panic Fashion": ["Y2K", "Tech-wear", "Metallic Fabrics", "1999", "Digital Age"],
+  "Logo Mania Peak": ["Logos", "Brand Visibility", "Dior", "Chanel", "Consumerism"],
+};
+
 export function WorldMap() {
   const [selectedEvent, setSelectedEvent] = useState<CulturalEvent | null>(null);
   const [yearFilter, setYearFilter] = useState<number | null>(null);
@@ -209,16 +223,16 @@ export function WorldMap() {
           })}
         </svg>
 
-        {/* Hover tooltip - clean design */}
+        {/* Hover tooltip - show themes */}
         <AnimatePresence>
           {hoveredEvent && !selectedEvent && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute top-4 left-4 bg-offwhite p-3 md:p-4 shadow-lg rounded-lg"
+              className="absolute top-4 left-4 right-4 bg-offwhite p-4 md:p-6 shadow-lg rounded-lg"
             >
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-2">
                 <div
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: yearColors[hoveredEvent.year as keyof typeof yearColors] || "#3D2B1F" }}
@@ -227,17 +241,27 @@ export function WorldMap() {
                   {hoveredEvent.year}
                 </p>
               </div>
-              <h4 className="font-heading text-sm md:text-base font-bold text-deep-brown mb-1">
+              <h4 className="font-heading text-base md:text-lg font-bold text-deep-brown mb-2">
                 {hoveredEvent.event}
               </h4>
-              <p className="font-body text-xs text-silver">
-                Impact: {hoveredEvent.impact}%
+              <p className="font-body text-sm text-deep-brown mb-3">
+                {hoveredEvent.description}
               </p>
+              <div className="flex flex-wrap gap-1.5">
+                {(eventThemes[hoveredEvent.event] || []).map((theme) => (
+                  <span
+                    key={theme}
+                    className="px-2 py-0.5 bg-light-gray text-[10px] text-silver rounded"
+                  >
+                    {theme}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Selected event modal */}
+        {/* Selected event modal - show full details + themes */}
         <AnimatePresence>
           {selectedEvent && (
             <motion.div
@@ -251,27 +275,51 @@ export function WorldMap() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
-                className="relative max-w-lg w-full bg-offwhite p-6 md:p-8"
+                className="relative max-w-2xl w-full bg-offwhite p-6 md:p-8 max-h-[90vh] overflow-y-auto rounded-xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
                   onClick={() => setSelectedEvent(null)}
-                  className="absolute top-4 right-4 text-silver hover:text-deep-brown transition-colors"
+                  className="absolute top-4 right-4 text-silver hover:text-deep-brown transition-colors text-xl"
                 >
                   ✕
                 </button>
 
-                <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
-                  {selectedEvent.year} — Impact: {selectedEvent.impact}%
-                </p>
+                <div className="flex items-center gap-2 mb-3">
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: yearColors[selectedEvent.year as keyof typeof yearColors] || "#3D2B1F" }}
+                  />
+                  <p className="font-body text-xs text-silver uppercase tracking-widest">
+                    {selectedEvent.year}
+                  </p>
+                </div>
+
                 <h4 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-3">
                   {selectedEvent.event}
                 </h4>
-                <p className="font-body text-base text-deep-brown mb-4">
+
+                <p className="font-body text-deep-brown text-base mb-6 leading-relaxed">
                   {selectedEvent.description}
                 </p>
 
-                <div className="bg-light-gray p-4">
+                <div className="mb-6">
+                  <p className="font-body text-xs text-silver uppercase tracking-widest mb-3">
+                    Cultural Themes & Trends
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {(eventThemes[selectedEvent.event] || []).map((theme) => (
+                      <span
+                        key={theme}
+                        className="px-3 py-1 bg-light-gray text-xs text-deep-brown rounded-lg"
+                      >
+                        {theme}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-light-gray p-4 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-body text-xs text-silver uppercase tracking-widest">
                       Impact Level
