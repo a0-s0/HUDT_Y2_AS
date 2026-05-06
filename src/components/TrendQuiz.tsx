@@ -1,0 +1,205 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const questions = [
+  {
+    question: "Pick a color palette:",
+    options: ["Black & White", "Neon & Metallic", "Beige & Nude", "Grunge Earth Tones"],
+    weights: [1, 2, 0, 1], // 0=Minimalist, 1=Y2K, 2=Glamour, 3=Grunge
+  },
+  {
+    question: "Your ideal 90s outfit:",
+    options: ["Slip dress & heels", "Metallic crop top & boots", "Silk suit & sneakers", "Flannel & doc martens"],
+    weights: [0, 2, 1, 3],
+  },
+  {
+    question: "Favorite 90s icon:",
+    options: ["Kate Moss", "Gwen Stefani", "Carolyn Bessette-Kennedy", "Kurt Cobain"],
+    weights: [2, 2, 0, 3],
+  },
+  {
+    question: "Pick a fashion capital:",
+    options: ["Minimalist New York", "Futuristic Tokyo", "Theatrical Paris", "Grunge Seattle"],
+    weights: [0, 2, 1, 3],
+  },
+];
+
+const trends = {
+  "Minimalist": {
+    title: "The Minimalist",
+    description: "Like Calvin Klein, you embrace clean lines, understated elegance, and the 'less is more' philosophy. Your style is timeless, sleek, and effortlessly cool.",
+    color: "#333333",
+    icon: "◆",
+  },
+  "Y2K": {
+    title: "The Y2K Pioneer",
+    description: "Like Chanel under Lagerfeld, you're all about futuristic fabrics, metallic accents, and bold logos. You embrace the digital age with fashion that looks to the future.",
+    color: "#C0C0C0",
+    icon: "◈",
+  },
+  "Glamour": {
+    title: "The Glamour Girl",
+    description: "Like Dior under Galliano, you love theatrical, over-the-top fashion. Embellishments, drama, and couture-level glamour define your style.",
+    color: "#D4AF37",
+    icon: "✦",
+  },
+  "Grunge": {
+    title: "The Grunge Rebel",
+    description: "Like Marc Jacobs' 1995 grunge revolution, you reject fashion norms. Oversized flannels, distressed denim, and an anti-establishment attitude define your look.",
+    color: "#8B4513",
+    icon: "✗",
+  },
+};
+
+export function TrendQuiz() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState<number[]>([]);
+  const [showResult, setShowResult] = useState(false);
+
+  const handleAnswer = (weight: number) => {
+    const newAnswers = [...answers, weight];
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setAnswers(newAnswers);
+    } else {
+      // Calculate result
+      const avgWeight = newAnswers.reduce((a, b) => a + b, 0) / newAnswers.length;
+      setAnswers(newAnswers);
+      setShowResult(true);
+    }
+  };
+
+  const getResult = () => {
+    if (answers.length === 0) return "Minimalist";
+    const avgWeight = answers.reduce((a, b) => a + b, 0) / answers.length;
+    if (avgWeight < 0.8) return "Minimalist";
+    if (avgWeight < 1.5) return "Glamour";
+    if (avgWeight < 2.2) return "Y2K";
+    return "Grunge";
+  };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setAnswers([]);
+    setShowResult(false);
+  };
+
+  const result = getResult();
+  const trend = trends[result as keyof typeof trends];
+
+  return (
+    <section id="quiz" className="py-32 md:py-48 px-4">
+      <div className="max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
+            Interactive Q&A
+          </p>
+          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown">
+            Which 90s Trend Are You?
+          </h2>
+          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
+            Answer 4 questions to discover your 90s fashion persona
+          </p>
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          {!showResult ? (
+            <motion.div
+              key={currentQuestion}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-xl p-8 md:p-12"
+            >
+              <div className="mb-8">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-body text-xs text-silver uppercase tracking-widest">
+                    Question {currentQuestion + 1}/{questions.length}
+                  </span>
+                  <div className="flex gap-1">
+                    {questions.map((_, i) => (
+                      <div
+                        key={i}
+                        className={`h-1 w-8 rounded-full ${
+                          i <= currentQuestion ? "bg-deep-brown" : "bg-light-gray"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase text-deep-brown mb-6">
+                  {questions[currentQuestion].question}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {questions[currentQuestion].options.map((option, idx) => (
+                  <motion.button
+                    key={option}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleAnswer(questions[currentQuestion].weights[idx])}
+                    className="p-4 text-left bg-light-gray hover:bg-deep-brown hover:text-offwhite transition-all duration-300 rounded-lg"
+                  >
+                    <span className="font-body text-sm">{option}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl p-8 md:p-12 text-center"
+            >
+              <div
+                className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl"
+                style={{ backgroundColor: trend.color + "20" }}
+              >
+                <span style={{ color: trend.color }}>{trend.icon}</span>
+              </div>
+
+              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-4">
+                {trend.title}
+              </h3>
+
+              <p className="font-body text-deep-brown text-base mb-8 max-w-lg mx-auto">
+                {trend.description}
+              </p>
+
+              <div className="flex items-center justify-center gap-3 mb-8">
+                {Object.entries(trends).map(([key, t]) => (
+                  <div
+                    key={key}
+                    className={`w-12 h-1.5 rounded-full transition-all duration-300 ${
+                      key === result ? "" : "opacity-30"
+                    }`}
+                    style={{ backgroundColor: t.color }}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={resetQuiz}
+                className="px-6 py-3 bg-deep-brown text-offwhite font-body text-sm uppercase tracking-widest rounded-lg hover:bg-deep-brown/80 transition-colors"
+              >
+                Take Quiz Again
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}

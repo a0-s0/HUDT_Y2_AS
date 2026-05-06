@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Timeline } from "@/components/Timeline";
 import { DesignerSpotlights } from "@/components/DesignerSpotlights";
 import { Infographics } from "@/components/Infographics";
+import { TrendQuiz } from "@/components/TrendQuiz";
 
 export default function Home() {
   return (
@@ -13,9 +14,11 @@ export default function Home() {
       <DesignerSpotlights />
       <Infographics />
 
+      <TrendQuiz />
+
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="font-heading text-[50px] md:text-[80px] font-bold uppercase text-deep-brown mb-4">
+          <p className="font-heading text-[40px] md:text-[60px] font-bold uppercase text-deep-brown mb-4">
             THE FASHION PARADIGM SHIFT
           </p>
           <p className="font-body text-sm text-silver">

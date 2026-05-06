@@ -12,13 +12,6 @@ const fashionCapitals = [
   { id: "tokyo", name: "Tokyo", x: 790, y: 175, label: "Japan" },
 ];
 
-// Convert lat/lng to SVG coordinates (simplified Mercator)
-const latLngToSvg = (lat: number, lng: number) => {
-  const x = ((lng + 180) / 360) * 900;
-  const y = ((90 - lat) / 180) * 300;
-  return { x, y };
-};
-
 export function WorldMap() {
   const [selectedEvent, setSelectedEvent] = useState<CulturalEvent | null>(null);
   const [yearFilter, setYearFilter] = useState<number | null>(null);
@@ -74,7 +67,6 @@ export function WorldMap() {
 
           {/* Cultural impact spots */}
           {filteredEvents.map((event, i) => {
-            const pos = latLngToSvg(event.lat, event.lng);
             const isHovered = hoveredEvent?.year === event.year && hoveredEvent?.event === event.event;
             const radius = (event.impact / 100) * 12 + 4;
 
@@ -83,8 +75,8 @@ export function WorldMap() {
                 {/* Pulse animation for high impact */}
                 {event.impact > 90 && (
                   <circle
-                    cx={pos.x}
-                    cy={pos.y}
+                    cx={event.x}
+                    cy={event.y}
                     r={radius}
                     fill="none"
                     stroke="#3D2B1F"
@@ -110,8 +102,8 @@ export function WorldMap() {
 
                 {/* Main spot */}
                 <motion.circle
-                  cx={pos.x}
-                  cy={pos.y}
+                  cx={event.x}
+                  cy={event.y}
                   r={isHovered ? radius + 2 : radius}
                   fill="#3D2B1F"
                   opacity={isHovered ? 0.9 : 0.6}
@@ -126,17 +118,17 @@ export function WorldMap() {
                   onClick={() => setSelectedEvent(event)}
                 />
 
-                {/* Year label */}
+                {/* Event label */}
                 <text
-                  x={pos.x}
-                  y={pos.y - radius - 5}
-                  textAnchor="middle"
+                  x={event.x + radius + 5}
+                  y={event.y + 3}
+                  textAnchor="start"
                   fill="#3D2B1F"
-                  fontSize="7"
+                  fontSize="6"
                   fontFamily="var(--font-inter)"
-                  fontWeight="600"
+                  fontWeight="500"
                 >
-                  {event.year}
+                  {event.year}: {event.event.substring(0, 20)}
                 </text>
               </g>
             );

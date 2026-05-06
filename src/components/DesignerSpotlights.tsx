@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { designerData } from "@/data/designerData";
 
 export function DesignerSpotlights() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [selectedDesigner, setSelectedDesigner] = useState<typeof designerData[0] | null>(null);
 
   return (
     <section id="designers" className="py-32 md:py-48 px-4 bg-light-gray">
@@ -20,11 +21,11 @@ export function DesignerSpotlights() {
           <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
             Archive Insights
           </p>
-          <h2 className="font-heading text-[50px] md:text-[70px] lg:text-[80px] font-bold uppercase mb-8 text-deep-brown">
+          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
             Designer Spotlights
           </h2>
           <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
-            Five visionaries who defined the decade. Hover to reveal archive
+            Five visionaries who defined the decade. Click to reveal archive
             insights.
           </p>
         </motion.div>
@@ -37,16 +38,15 @@ export function DesignerSpotlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredId(designer.id)}
-              onMouseLeave={() => setHoveredId(null)}
+              onClick={() => setSelectedDesigner(designer)}
               className="relative group cursor-pointer"
             >
-              <div className="relative h-[480px] overflow-hidden bg-white">
+              <div className="relative h-[480px] overflow-hidden bg-white rounded-xl">
                 <div className="relative z-10 p-6">
                   <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
                     {designer.nationality}
                   </p>
-                  <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown mb-2">
+                  <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
                     {designer.name}
                   </h3>
                   <p className="font-body text-silver text-xs">{designer.period}</p>
@@ -60,77 +60,109 @@ export function DesignerSpotlights() {
                     {designer.description}
                   </p>
                 </div>
-
-                <motion.div
-                  initial={false}
-                  animate={{
-                    opacity: hoveredId === designer.id ? 1 : 0,
-                    y: hoveredId === designer.id ? 0 : 10,
-                  }}
-                  className="absolute inset-0 bg-offwhite/97 backdrop-blur-sm p-6 flex flex-col justify-center"
-                >
-                  <p className="font-body text-silver tracking-widest uppercase text-xs mb-4">
-                    Archive Insights
-                  </p>
-
-                  <p className="text-deep-brown text-sm mb-6 italic">
-                    &quot;{designer.mood}&quot;
-                  </p>
-
-                  <div className="mb-6">
-                    <p className="font-body text-silver text-xs mb-3">Color Palette</p>
-                    <div className="flex gap-2">
-                      {designer.palette.map((color) => (
-                        <div
-                          key={color.name}
-                          className="flex flex-col items-center gap-1"
-                        >
-                          <div
-                            className="w-8 h-8 rounded-full"
-                            style={{ backgroundColor: color.hex }}
-                          />
-                          <span className="text-[8px] text-silver">
-                            {color.name}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <p className="font-body text-silver text-xs mb-3">Key Fabrics</p>
-                    <div className="flex flex-wrap gap-2">
-                      {designer.fabrics.map((fabric) => (
-                        <span
-                          key={fabric}
-                          className="px-3 py-1 bg-light-gray text-[10px] text-silver"
-                        >
-                          {fabric}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="font-body text-silver text-xs mb-3">Signature</p>
-                    <ul className="space-y-2">
-                      {designer.signature.slice(0, 3).map((sig) => (
-                        <li
-                          key={sig}
-                          className="text-deep-brown text-xs flex items-start gap-2"
-                        >
-                          <span className="text-beige mt-0.5">◆</span>
-                          {sig}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Pop-out Modal for Designer Details */}
+      <AnimatePresence>
+        {selectedDesigner && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-deep-brown/90 backdrop-blur-sm"
+            onClick={() => setSelectedDesigner(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-2xl w-full bg-offwhite p-6 md:p-8 max-h-[90vh] overflow-y-auto rounded-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedDesigner(null)}
+                className="absolute top-4 right-4 text-silver hover:text-deep-brown transition-colors text-xl"
+              >
+                ✕
+              </button>
+
+              <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
+                {selectedDesigner.nationality}
+              </p>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-2">
+                {selectedDesigner.name}
+              </h3>
+              <p className="font-body text-silver text-xs mb-4">{selectedDesigner.period}</p>
+              <p className="text-beige-dark text-sm font-medium mb-4">
+                {selectedDesigner.title}
+              </p>
+              <p className="font-body text-deep-brown text-sm leading-relaxed mb-6">
+                {selectedDesigner.description}
+              </p>
+
+              <div className="mb-6">
+                <p className="font-body text-silver text-xs mb-3 uppercase tracking-widest">Mood</p>
+                <p className="text-deep-brown text-base mb-6 italic">
+                  &quot;{selectedDesigner.mood}&quot;
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <p className="font-body text-silver text-xs mb-3 uppercase tracking-widest">Color Palette</p>
+                <div className="flex gap-3">
+                  {selectedDesigner.palette.map((color) => (
+                    <div
+                      key={color.name}
+                      className="flex flex-col items-center gap-1"
+                    >
+                      <div
+                        className="w-10 h-10 rounded-full"
+                        style={{ backgroundColor: color.hex }}
+                      />
+                      <span className="text-[8px] text-silver">
+                        {color.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <p className="font-body text-silver text-xs mb-3 uppercase tracking-widest">Key Fabrics</p>
+                <div className="flex flex-wrap gap-2">
+                  {selectedDesigner.fabrics.map((fabric) => (
+                    <span
+                      key={fabric}
+                      className="px-3 py-1 bg-light-gray text-xs text-silver rounded-lg"
+                    >
+                      {fabric}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="font-body text-silver text-xs mb-3 uppercase tracking-widest">Signature</p>
+                <ul className="space-y-2">
+                  {selectedDesigner.signature.slice(0, 3).map((sig) => (
+                    <li
+                      key={sig}
+                      className="text-deep-brown text-sm flex items-start gap-2"
+                    >
+                      <span className="text-beige mt-0.5">◆</span>
+                      {sig}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

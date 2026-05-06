@@ -20,7 +20,7 @@ export function Timeline() {
           <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
             1995 — 1999
           </p>
-          <h2 className="font-heading text-[50px] md:text-[70px] lg:text-[80px] font-bold uppercase mb-8 text-deep-brown">
+          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
             Timeline
           </h2>
           <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
@@ -69,7 +69,7 @@ export function Timeline() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="bg-white p-8 md:p-12"
+                      className="bg-white p-8 md:p-12 rounded-xl text-center"
                     >
                       <div className="flex items-center gap-3 mb-6">
                         <div className="w-12 h-px bg-beige" />
@@ -89,7 +89,7 @@ export function Timeline() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="bg-white p-8 md:p-12"
+                      className="bg-white p-8 md:p-12 rounded-xl text-center"
                     >
                       <div className="flex items-center gap-3 mb-6">
                         <div className="w-12 h-px bg-beige" />

@@ -124,13 +124,13 @@ function MobileMenu({
         />
       </button>
 
-      <AnimatePresence>
+        <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute right-0 top-full mt-2 w-48 bg-offwhite rounded-lg shadow-xl py-2"
+            className="absolute right-0 top-full mt-2 w-48 bg-offwhite rounded-xl shadow-xl py-2"
           >
             {navItems.map((item) => (
               <button
