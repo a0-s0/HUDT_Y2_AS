@@ -90,20 +90,6 @@ export function TrendQuiz() {
   return (
     <section id="quiz" className="py-32 md:py-48 px-4">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2
-            className="font-heading text-[28px] md:text-[36px] font-bold uppercase mb-4 text-deep-brown text-center cursor-pointer hover:scale-110 transition-transform duration-300"
-          >
-            Which 90s Trend Are You?
-          </h2>
-        </motion.div>
-
         <AnimatePresence mode="wait">
           {!showResult ? (
             <motion.div
@@ -114,6 +100,20 @@ export function TrendQuiz() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-xl p-8 md:p-10 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mb-8"
+              >
+                <h2
+                  className="font-heading text-[28px] md:text-[36px] font-bold uppercase text-deep-brown"
+                >
+                  Which 90s Trend Are You?
+                </h2>
+              </motion.div>
+
               <div className="mb-6">
                 <div className="flex items-center justify-center gap-3 mb-3">
                   <span className="font-body text-xs text-silver uppercase tracking-widest">
