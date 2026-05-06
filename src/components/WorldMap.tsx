@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { culturalImpactData, CulturalEvent } from "@/data/culturalImpactData";
 
 const fashionCapitals = [
-  { id: "new-york", name: "New York", x: 200, y: 150, label: "USA" },
+  { id: "new-york", name: "New York", x: 720, y: 180, label: "USA" },
   { id: "paris", name: "Paris", x: 480, y: 130, label: "France" },
   { id: "london", name: "London", x: 460, y: 120, label: "UK" },
-  { id: "milan", name: "Milan", x: 500, y: 140, label: "Italy" },
-  { id: "tokyo", name: "Tokyo", x: 780, y: 150, label: "Japan" },
+  { id: "milan", name: "Milan", x: 500, y: 145, label: "Italy" },
+  { id: "tokyo", name: "Tokyo", x: 850, y: 160, label: "Japan" },
 ];
 
 // Year-to-color mapping for the bar chart overlay
@@ -94,33 +94,32 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1000 500"
+            viewBox="0 0 1200 600"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* World map fills the entire SVG */}
-            <g stroke="#E0D5C5" strokeWidth="1" fill="none">
-              {/* North America */}
-              <path d="M50,80 L150,60 L250,70 L320,90 L350,85 L380,100 L360,140 L400,160 L380,200 L340,220 L300,200 L260,220 L220,180 L180,200 L140,160 L100,130 L60,100 Z" />
-              <path d="M340,220 L380,240 L400,280 L390,320 L360,340 L320,330 L300,280 Z" />
+            {/* Realistic world map paths - 1200x600 viewBox */}
+            <g stroke="#E0D5C5" strokeWidth="1.2" fill="none">
+              {/* North America with NYC on east coast (x=720) */}
+              <path d="M250,80 L350,60 L450,70 L550,90 L650,100 L720,110 L730,150 L720,180 L700,210 L650,240 L580,260 L500,250 L450,220 L400,200 L350,180 L300,150 L250,120 Z" />
               {/* Central America */}
-              <path d="M280,240 L300,250 L310,270 L300,290 L280,280 Z" />
+              <path d="M480,270 L520,280 L540,310 L520,340 L480,330 Z" />
               {/* South America */}
-              <path d="M320,320 L360,310 L420,320 L480,340 L500,380 L480,420 L440,440 L380,430 L340,400 L320,360 Z" />
+              <path d="M550,350 L620,340 L700,360 L750,400 L720,440 L680,460 L600,450 L550,420 L530,380 Z" />
               {/* Europe */}
-              <path d="M450,60 L500,50 L560,55 L620,60 L660,70 L680,90 L660,120 L640,140 L600,150 L560,140 L520,130 L480,120 L460,100 L450,80 Z" />
+              <path d="M480,60 L520,50 L580,55 L650,60 L720,70 L780,90 L760,120 L740,140 L700,150 L650,140 L600,130 L550,120 L520,100 L480,80 Z" />
               {/* Africa */}
-              <path d="M480,150 L520,140 L580,150 L640,160 L680,180 L700,220 L720,280 L700,340 L680,380 L640,400 L580,410 L520,400 L480,380 L460,340 L440,280 L460,220 Z" />
+              <path d="M520,150 L580,140 L650,150 L720,160 L780,180 L800,220 L780,280 L750,340 L700,380 L640,390 L580,370 L540,340 L520,300 L500,250 L520,200 Z" />
               {/* Asia */}
-              <path d="M680,50 L760,40 L860,50 L960,60 L1000,80 L980,120 L960,160 L920,200 L860,240 L800,280 L740,300 L700,280 L680,240 L660,200 L640,160 L660,120 L680,80 Z" />
+              <path d="M780,50 L860,40 L960,50 L1060,60 L1150,80 L1180,120 L1160,160 L1120,200 L1060,240 L980,280 L900,300 L820,280 L780,240 L760,200 L740,160 L760,120 Z" />
               {/* India */}
-              <path d="M720,200 L760,190 L780,220 L770,260 L740,280 L720,250 Z" />
+              <path d="M820,200 L860,190 L890,220 L880,260 L850,270 L820,250 Z" />
               {/* Southeast Asia */}
-              <path d="M800,240 L840,230 L860,250 L850,270 L820,280 L800,260 Z" />
-              {/* Japan */}
-              <path d="M880,180 L900,170 L920,180 L910,200 L890,210 L880,190 Z" />
+              <path d="M900,240 L940,230 L960,250 L950,270 L920,280 L900,260 Z" />
+              {/* Japan / Tokyo */}
+              <path d="M980,140 L1000,130 L1020,140 L1010,160 L990,170 L980,150 Z" />
               {/* Australia */}
-              <path d="M880,360 L940,350 L980,360 L960,380 L920,390 L880,380 Z" />
+              <path d="M980,360 L1040,350 L1080,360 L1060,380 L1020,390 L980,380 Z" />
             </g>
 
             {/* Cultural impact spots */}
@@ -206,19 +205,19 @@ export function WorldMap() {
             ))}
 
             {/* Cultural Impact Bar Chart at bottom */}
-            <rect x="100" y="400" width="800" height="60" fill="#F5F0E8" rx="4" />
+            <rect x="100" y="500" width="1000" height="70" fill="#F5F0E8" rx="4" />
             
             {yearChartData.map((item, i) => {
-              const barWidth = 140;
-              const x = 120 + i * (barWidth + 20);
-              const barHeight = (item.impact / 100) * 55;
+              const barWidth = 180;
+              const x = 140 + i * (barWidth + 25);
+              const barHeight = (item.impact / 100) * 65;
               const barColor = yearColors[item.year as keyof typeof yearColors] || "#3D2B1F";
 
               return (
                 <g key={item.year}>
                   <rect
                     x={x}
-                    y={400 + (55 - barHeight)}
+                    y={500 + (65 - barHeight)}
                     width={barWidth}
                     height={barHeight}
                     fill={barColor}
@@ -227,7 +226,7 @@ export function WorldMap() {
                   />
                   <text
                     x={x + barWidth / 2}
-                    y="475"
+                    y="585"
                     textAnchor="middle"
                     fill="#3D2B1F"
                     fontSize="12"

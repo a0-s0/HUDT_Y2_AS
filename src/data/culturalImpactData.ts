@@ -1,35 +1,35 @@
 export interface CulturalEvent {
   year: number;
   event: string;
-  x: number; // Direct SVG x coordinate for 1000x500 viewBox
-  y: number; // Direct SVG y coordinate for 1000x500 viewBox
+  x: number; // Direct SVG x coordinate for 1200x600 viewBox
+  y: number; // Direct SVG y coordinate for 1200x600 viewBox
   impact: number; // 1-100 scale
   description: string;
 }
 
 export const culturalImpactData: CulturalEvent[] = [
-  // Events near New York (x: 150-200, y: 120-180)
+  // Events near New York - East Coast USA (x: 700-740, y: 150-190)
   {
     year: 1995,
     event: "Rise of Supermodels",
-    x: 180,
-    y: 140,
+    x: 720,
+    y: 170,
     impact: 75,
     description: "Kate Moss, Naomi Campbell, Cindy Crawford dominate fashion"
   },
   {
     year: 1995,
     event: "Grunge to Minimalism",
-    x: 160,
-    y: 160,
+    x: 710,
+    y: 180,
     impact: 70,
     description: "Marc Jacobs brings grunge to luxury fashion"
   },
   {
     year: 1997,
     event: "Alexander McQueen's Rise",
-    x: 170,
-    y: 180,
+    x: 715,
+    y: 175,
     impact: 85,
     description: "McQueen becomes Givenchy's creative director"
   },
@@ -65,7 +65,7 @@ export const culturalImpactData: CulturalEvent[] = [
     year: 1998,
     event: "Y2K Aesthetic Emerges",
     x: 460,
-    y: 110,
+    y: 115,
     impact: 90,
     description: "Futuristic metallics and tech-inspired fashion"
   },
@@ -80,12 +80,12 @@ export const culturalImpactData: CulturalEvent[] = [
     description: "Fashion world shocked, legacy continues"
   },
 
-  // Events near Tokyo (x: 850-900, y: 170-200)
+  // Events near Tokyo (x: 850-900, y: 140-180)
   {
     year: 1999,
     event: "Y2K Panic Fashion",
     x: 880,
-    y: 180,
+    y: 160,
     impact: 85,
     description: "Tech-wear and metallic fabrics dominate"
   },
@@ -93,7 +93,7 @@ export const culturalImpactData: CulturalEvent[] = [
     year: 1999,
     event: "Logo Mania Peak",
     x: 890,
-    y: 190,
+    y: 170,
     impact: 98,
     description: "Designer logos reach saturation point"
   },

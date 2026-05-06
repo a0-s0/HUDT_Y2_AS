@@ -86,7 +86,7 @@ export function Infographics() {
               </div>
             </div>
 
-            <p className="text-silver text-sm mb-6 max-w-lg mx-auto">
+            <p className="text-silver text-sm mb-6 max-w-lg mx-auto text-center">
               {activeCity.label === "Paris: Theatricality & Conglomeration"
                 ? "Parisian fashion: theatricality meets luxury conglomeration"
                 : "New York fashion: minimalism meets commercial appeal"}
