@@ -72,8 +72,8 @@ export function WorldMap() {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-none">
-        <div className="relative w-full overflow-hidden bg-white p-12 md:p-16 flex flex-col items-center rounded-2xl">
-          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center">
+        <div className="relative w-full overflow-hidden bg-white flex flex-col items-center rounded-2xl">
+          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center mt-12">
             Cultural Impact
           </h3>
           <div className="flex gap-3 justify-center mb-8">
@@ -94,20 +94,18 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 3024 1964"
+            viewBox="0 0 800 400"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Scale everything to fill the 3024x1964 viewBox */}
-            <g transform="scale(5.2) translate(-20, -30)">
-            {/* Simplified world map outline */}
+            {/* World map fills the entire SVG */}
             <g stroke="#E0D5C5" strokeWidth="0.8" fill="none">
-              <path d="M120,80 L160,70 L200,75 L230,90 L250,85 L270,100 L260,120 L280,130 L270,150 L260,170 L240,180 L230,200 L200,190 L180,200 L160,180 L140,160 L120,140 L100,120 Z" />
-              <path d="M230,200 L250,210 L260,230 L255,260 L240,280 L220,285 L210,270 L215,240 Z" />
-              <path d="M420,80 L440,75 L470,80 L490,85 L510,90 L520,100 L510,115 L500,130 L480,135 L460,140 L440,130 L430,110 L420,100 Z" />
-              <path d="M460,140 L480,145 L500,155 L510,175 L500,200 L490,230 L470,250 L450,240 L440,210 L445,180 Z" />
-              <path d="M520,80 L560,70 L620,75 L680,80 L730,90 L770,100 L790,120 L780,145 L760,160 L730,170 L700,165 L660,155 L620,145 L580,130 L560,120 L540,110 L520,100 Z" />
-              <path d="M750,200 L780,195 L810,200 L820,220 L810,240 L790,250 L770,245 L755,230 Z" />
+              <path d="M50,50 L150,30 L250,40 L320,60 L370,55 L420,80 L390,120 L440,140 L420,180 L380,200 L350,230 L300,220 L260,240 L220,200 L180,220 L140,180 L100,150 L60,100 Z" />
+              <path d="M350,240 L400,260 L420,300 L410,360 L380,380 L340,390 L320,360 L330,300 Z" />
+              <path d="M500,40 L560,30 L620,35 L660,45 L700,50 L720,70 L700,100 L680,130 L640,140 L600,150 L560,140 L540,110 L520,90 Z" />
+              <path d="M580,150 L620,160 L660,180 L680,220 L660,260 L640,300 L600,340 L560,320 L540,280 L550,220 Z" />
+              <path d="M700,40 L780,20 L900,30 L1000,40 L1100,60 L1180,80 L1220,120 L1200,170 L1160,200 L1100,220 L1020,210 L940,190 L860,170 L780,150 L720,120 L700,80 Z" />
+              <path d="M1100,240 L1160,230 L1220,240 L1240,280 L1220,320 L1180,340 L1140,330 L1110,300 Z" />
             </g>
 
             {/* Cultural impact spots */}
@@ -166,7 +164,7 @@ export function WorldMap() {
                     y={event.y - radius - 5}
                     textAnchor="middle"
                     fill="#3D2B1F"
-                    fontSize="8"
+                    fontSize="12"
                     fontFamily="Helvetica Neue, Arial, sans-serif"
                     opacity={isHovered ? 1 : 0.7}
                   >
@@ -184,7 +182,7 @@ export function WorldMap() {
                   y={capital.y + 20}
                   textAnchor="middle"
                   fill="#888888"
-                  fontSize="7"
+                  fontSize="10"
                   fontFamily="Helvetica Neue, Arial, sans-serif"
                 >
                   {capital.name}
@@ -193,21 +191,19 @@ export function WorldMap() {
             ))}
 
             {/* Cultural Impact Bar Chart at bottom */}
-            {/* Background */}
-            <rect x="100" y="290" width="700" height="40" fill="#F5F0E8" rx="4" />
+            <rect x="100" y="290" width="600" height="50" fill="#F5F0E8" rx="4" />
             
-            {/* Bars */}
             {yearChartData.map((item, i) => {
-              const barWidth = 120;
+              const barWidth = 100;
               const x = 120 + i * (barWidth + 15);
-              const barHeight = (item.impact / 100) * 35;
+              const barHeight = (item.impact / 100) * 45;
               const barColor = yearColors[item.year as keyof typeof yearColors] || "#3D2B1F";
 
               return (
                 <g key={item.year}>
                   <rect
                     x={x}
-                    y={290 + (35 - barHeight)}
+                    y={290 + (45 - barHeight)}
                     width={barWidth}
                     height={barHeight}
                     fill={barColor}
@@ -216,10 +212,10 @@ export function WorldMap() {
                   />
                   <text
                     x={x + barWidth / 2}
-                    y="335"
+                    y="355"
                     textAnchor="middle"
                     fill="#3D2B1F"
-                    fontSize="8"
+                    fontSize="10"
                     fontFamily="Helvetica Neue, Arial, sans-serif"
                     fontWeight="500"
                   >
@@ -228,7 +224,6 @@ export function WorldMap() {
                 </g>
               );
             })}
-            </g>
           </svg>
 
           {/* Hover tooltip - show themes */}

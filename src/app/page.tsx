@@ -15,25 +15,25 @@ export default function Home() {
         <Timeline />
       </div>
       
-      <div className="py-16"></div>
+      <div className="h-[15px]"></div>
       
       <div className="flex flex-col items-center">
         <DesignerSpotlights />
       </div>
       
-      <div className="py-16"></div>
+      <div className="h-[15px]"></div>
       
       <div className="flex flex-col items-center">
         <Infographics />
       </div>
       
-      <div className="py-16"></div>
+      <div className="h-[15px]"></div>
       
       <div className="flex flex-col items-center">
         <TrendQuiz />
       </div>
       
-      <div className="py-16"></div>
+      <div className="h-[15px]"></div>
       
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
