@@ -100,7 +100,7 @@ export function TrendQuiz() {
           <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-4">
             Interactive Q&A
           </p>
-          <h2 className="font-heading text-[36px] md:text-[42px] font-bold uppercase mb-4 text-deep-brown">
+          <h2 className="font-heading text-[28px] md:text-[36px] font-bold uppercase mb-4 text-deep-brown text-center">
             Which 90s Trend Are You?
           </h2>
         </motion.div>

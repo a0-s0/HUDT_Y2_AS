@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "name": "OpenCode Design System",
+    "description": "Design tokens extracted from the React/Tailwind CSS codebase",
+    "exported": "2026-05-06"
+  },
+  "colors": {
+    "charcoal": {
+      "value": "#1A1A1A",
+      "name": "Charcoal",
+      "type": "primary dark",
+      "usage": "Primary text, headings, dark backgrounds"
+    },
+    "charcoal-light": {
+      "value": "#2C2C2C",
+      "name": "Charcoal Light",
+      "type": "secondary dark",
+      "usage": "Hover states, secondary text"
+    },
+    "offwhite": {
+      "value": "#F5F0E8",
+      "name": "Off-White",
+      "type": "primary light",
+      "usage": "Primary background, light surfaces"
+    },
+    "light-gray": {
+      "value": "#F0EDE8",
+      "name": "Light Gray",
+      "type": "secondary light",
+      "usage": "Secondary backgrounds, subtle divisions"
+    },
+    "white": {
+      "value": "#FFFFFF",
+      "name": "White",
+      "type": "pure white",
+      "usage": "Pure white elements, text on dark backgrounds"
+    },
+    "beige": {
+      "value": "#C4B5A0",
+      "name": "Beige",
+      "type": "warm neutral",
+      "usage": "Accent color for borders, highlights"
+    },
+    "beige-light": {
+      "value": "#D4C5B2",
+      "name": "Beige Light",
+      "type": "warm neutral light",
+      "usage": "Light backgrounds, subtle accents"
+    },
+    "beige-dark": {
+      "value": "#A89880",
+      "name": "Beige Dark",
+      "type": "warm neutral dark",
+      "usage": "Dark accents, borders, hover states"
+    },
+    "border": {
+      "value": "#E0D5C5",
+      "name": "Border",
+      "type": "border color",
+      "usage": "Dividing lines, borders"
+    },
+    "silver": {
+      "value": "#888888",
+      "name": "Silver",
+      "type": "neutral gray",
+      "usage": "Secondary text, disabled states, metadata"
+    },
+    "silver-light": {
+      "value": "#B0B0B0",
+      "name": "Silver Light",
+      "type": "neutral gray light",
+      "usage": "Light text, tertiary information"
+    },
+    "gold": {
+      "value": "#B8960C",
+      "name": "Gold",
+      "type": "accent",
+      "usage": "Accent highlights, important elements, calls-to-action"
+    }
+  },
+  "typography": {
+    "heading": {
+      "fontFamily": "EB Garamond",
+      "weights": [400, 500, 600, 700, 800],
+      "source": "Google Fonts",
+      "usage": "H1, H2, H3, H4, H5, H6, section headings"
+    },
+    "body": {
+      "fontFamily": "Inter",
+      "weights": [400, 500, 600, 700],
+      "source": "Google Fonts",
+      "usage": "Body text, paragraphs, UI labels"
+    }
+  },
+  "spacing": {
+    "system": "4px base grid (Tailwind default)",
+    "scale": [
+      "px (1px)",
+      "0.5 (2px)",
+      "1 (4px)",
+      "2 (8px)",
+      "3 (12px)",
+      "4 (16px)",
+      "6 (24px)",
+      "8 (32px)",
+      "12 (48px)",
+      "16 (64px)",
+      "20 (80px)",
+      "32 (128px)"
+    ],
+    "notes": "Uses Tailwind CSS defaults (1 = 4px)"
+  },
+  "effects": {
+    "glass": {
+      "name": "Glass",
+      "background": "rgba(245, 240, 232, 0.85)",
+      "backdropFilter": "blur(12px)",
+      "usage": "Light frosted glass effect on cards/overlays"
+    },
+    "glass-dark": {
+      "name": "Glass Dark",
+      "background": "rgba(26, 26, 26, 0.9)",
+      "backdropFilter": "blur(12px)",
+      "usage": "Dark frosted glass effect on overlays"
+    }
+  },
+  "components": [
+    "Navigation",
+    "Hero",
+    "Timeline",
+    "DesignerSpotlights",
+    "Infographics",
+    "WorldMap"
+  ],
+  "tailwindClasses": {
+    "colors": {
+      "text-charcoal": "#1A1A1A",
+      "text-charcoal-light": "#2C2C2C",
+      "text-offwhite": "#F5F0E8",
+      "text-beige": "#C4B5A0",
+      "text-beige-light": "#D4C5B2",
+      "text-beige-dark": "#A89880",
+      "text-silver": "#888888",
+      "text-silver-light": "#B0B0B0",
+      "text-gold": "#B8960C",
+      "text-white": "#FFFFFF",
+      "text-light-gray": "#F0EDE8",
+      "bg-charcoal": "#1A1A1A",
+      "bg-offwhite": "#F5F0E8",
+      "bg-beige": "#C4B5A0",
+      "bg-beige-light": "#D4C5B2",
+      "bg-beige-dark": "#A89880",
+      "bg-white": "#FFFFFF",
+      "bg-light-gray": "#F0EDE8",
+      "border-border": "#E0D5C5"
+    },
+    "typography": {
+      "font-heading": "EB Garamond",
+      "font-body": "Inter"
+    }
+  }
+}

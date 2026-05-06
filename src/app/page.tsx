@@ -18,7 +18,7 @@ export default function Home() {
 
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="font-heading text-[40px] md:text-[60px] font-bold uppercase text-deep-brown mb-4">
+          <p className="font-heading text-[32px] md:text-[48px] font-bold uppercase text-deep-brown mb-4 text-center">
             THE FASHION PARADIGM SHIFT
           </p>
           <p className="font-body text-sm text-silver">

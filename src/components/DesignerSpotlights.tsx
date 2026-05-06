@@ -42,17 +42,17 @@ export function DesignerSpotlights() {
               className="relative group cursor-pointer"
             >
               <div className="relative h-[480px] overflow-hidden bg-white rounded-xl">
-                <div className="relative z-10 p-6">
-                  <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
+                <div className="relative z-10 p-8">
+                  <p className="font-body text-silver tracking-widest uppercase text-xs mb-3">
                     {designer.nationality}
                   </p>
-                  <h3 className="font-heading text-[18px] md:text-[22px] font-bold uppercase text-deep-brown mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <h3 className="font-heading text-[16px] md:text-[20px] font-bold uppercase text-deep-brown mb-3 whitespace-nowrap overflow-hidden text-ellipsis">
                     {designer.name}
                   </h3>
-                  <p className="font-body text-silver text-xs">{designer.period}</p>
+                  <p className="font-body text-silver text-sm">{designer.period}</p>
                 </div>
 
-                <div className="relative z-10 px-6 pb-6 flex-1">
+                <div className="relative z-10 px-8 pb-8 flex-1">
                   <p className="text-beige-dark text-sm font-medium mb-4">
                     {designer.title}
                   </p>

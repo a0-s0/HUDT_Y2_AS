@@ -44,7 +44,7 @@ export function Infographics() {
           <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
             Data Visualization
           </p>
-          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown">
+          <h2 className="font-heading text-[32px] md:text-[40px] lg:text-[48px] font-bold uppercase mb-6 text-deep-brown text-center">
             Socio-Political Impact
           </h2>
           <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
@@ -56,16 +56,16 @@ export function Infographics() {
           <WorldMap />
         </div>
 
-        <div className="space-y-8 mb-20">
-          {/* Paris vs New York - Stacked vertically, center-aligned */}
+        <div className="flex flex-col items-center gap-8 mb-20 max-w-4xl mx-auto">
+          {/* Paris vs New York - Smaller centered box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-6 md:p-8 text-center"
+            className="bg-white rounded-xl p-6 md:p-8 w-full max-w-2xl"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown">
+              <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown">
                 {activeCity.label}
               </h3>
               <div className="flex bg-light-gray rounded-lg p-0.5 mx-auto">
@@ -130,21 +130,21 @@ export function Infographics() {
             </div>
           </motion.div>
 
-          {/* Logo Saturation Index - Center-aligned */}
+          {/* Logo Saturation Index - Smaller centered box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-6 md:p-8 text-center"
+            className="bg-white rounded-xl p-6 md:p-8 w-full max-w-xl mx-auto"
           >
-            <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown mb-2">
+            <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-2 text-center">
               Logo Saturation Index
             </h3>
-            <p className="font-body text-silver text-sm mb-6 max-w-lg mx-auto">
+            <p className="font-body text-silver text-sm mb-6 max-w-md mx-auto text-center">
               The rise of designer logos vs. the decline of minimalism (1995—1999)
             </p>
 
-            <div className="h-72 mb-6 max-w-2xl mx-auto">
+            <div className="h-56 mb-6 max-w-lg mx-auto">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={logoSaturationData}>
                   <defs>
@@ -196,7 +196,7 @@ export function Infographics() {
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-light-gray rounded-lg p-4 max-w-lg mx-auto">
+            <div className="bg-light-gray rounded-lg p-4 max-w-sm mx-auto">
               <p className="font-body text-silver text-xs tracking-widest uppercase mb-1">
                 Key Insight
               </p>

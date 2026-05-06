@@ -22,7 +22,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="font-heading text-[50px] sm:text-[60px] md:text-[70px] lg:text-[80px] font-bold uppercase tracking-tight leading-none mb-12 text-deep-brown"
+          className="font-heading text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-bold uppercase tracking-tight leading-none mb-8 text-deep-brown text-center"
         >
           THE FASHION
           <br />

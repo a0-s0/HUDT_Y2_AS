@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 16px;
+        background: #f5f0e8;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0 0 12px;
+        color: #1a1a1a;
+      }
+      p {
+        margin: 8px 0;
+        color: #888;
+        font-size: 13px;
+      }
+      button {
+        background: #b8960c;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #a89880;
+      }
+      .status {
+        margin-top: 12px;
+        padding: 12px;
+        background: white;
+        border-radius: 4px;
+        text-align: center;
+        color: #1a1a1a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎨 Auto-Populate Design System</h1>
+    <p>Click the button below to populate your Figma file with:</p>
+    <ul style="margin: 8px 0; padding-left: 20px; color: #888">
+      <li>12 color swatches</li>
+      <li>6 typography samples</li>
+      <li>6 component frames</li>
+    </ul>
+    <button onclick="populateDesignSystem()">Start Auto-Population</button>
+    <div id="status"></div>
+
+    <script>
+      function populateDesignSystem() {
+        parent.postMessage({ pluginMessage: { type: "POPULATE" } }, "*");
+      }
+
+      window.onmessage = (event) => {
+        const status = document.getElementById("status");
+        if (event.data.pluginMessage.type === "COMPLETE") {
+          status.innerHTML =
+            '<div class="status">✅ Design system populated successfully!</div>';
+        }
+      };
+    </script>
+  </body>
+</html>

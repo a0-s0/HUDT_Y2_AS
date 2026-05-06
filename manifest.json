@@ -1,0 +1,7 @@
+{
+  "name": "OpenCode Design System Auto-Populate",
+  "id": "1234567890",
+  "api": "1.0.0",
+  "main": "figma-plugin-main.ts",
+  "ui": "figma-plugin-ui.html"
+}
