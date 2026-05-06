@@ -41,22 +41,16 @@ export function Infographics() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
-            Data Visualization
-          </p>
           <h2 className="font-heading text-[32px] md:text-[40px] lg:text-[48px] font-bold uppercase mb-6 text-deep-brown text-center">
             Socio-Political Impact
           </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
-            How global events shaped the aesthetics of 1995—1999.
-          </p>
         </motion.div>
 
         <div className="mb-20">
           <WorldMap />
         </div>
 
-        <div className="flex flex-col items-center gap-8 mb-20 max-w-4xl mx-auto">
+        <div className="flex flex-col items-center justify-center gap-8 mb-20 max-w-4xl mx-auto">
           {/* Paris vs New York - Smaller centered box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

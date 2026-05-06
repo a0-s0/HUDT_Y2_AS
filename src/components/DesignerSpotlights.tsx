@@ -11,57 +11,51 @@ export function DesignerSpotlights() {
   return (
     <section id="designers" className="py-32 md:py-48 px-4 bg-light-gray">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
-            Archive Insights
-          </p>
-          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
-            Designer Spotlights
-          </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
-            Five visionaries who defined the decade.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
+              Designer Spotlights
+            </h2>
+          </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 md:gap-10">
-          {designerData.map((designer, index) => (
-            <motion.div
-              key={designer.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => setSelectedDesigner(designer)}
-              className="relative group cursor-pointer"
-            >
-              <div className="relative h-[480px] overflow-hidden bg-white rounded-xl">
-                <div className="relative z-10 p-12">
-                  <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-4">
-                    {designer.nationality}
-                  </p>
-                  <h3 className="font-heading text-[14px] md:text-[16px] font-bold uppercase text-deep-brown mb-4 whitespace-nowrap overflow-hidden text-ellipsis px-6">
-                    {designer.name}
-                  </h3>
-                  <p className="font-body text-silver text-[10px] px-6">{designer.period}</p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+            {designerData.map((designer, index) => (
+              <motion.div
+                key={designer.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onClick={() => setSelectedDesigner(designer)}
+                className="relative group cursor-pointer"
+              >
+                <div className="relative h-[400px] overflow-hidden bg-white rounded-xl">
+                  <div className="relative z-10 p-8">
+                    <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-4">
+                      {designer.nationality}
+                    </p>
+                    <h3 className="font-heading text-[14px] md:text-[16px] font-bold uppercase text-deep-brown mb-4 whitespace-nowrap overflow-hidden text-ellipsis px-6">
+                      {designer.name}
+                    </h3>
+                    <p className="font-body text-silver text-[10px] px-6">{designer.period}</p>
+                  </div>
 
-                <div className="relative z-10 px-12 pb-12 flex-1">
-                  <p className="text-beige-dark text-[10px] font-medium mb-4">
-                    {designer.title}
-                  </p>
-                  <p className="font-body text-silver text-[10px] leading-relaxed mb-6 line-clamp-3">
-                    {designer.description}
-                  </p>
+                  <div className="relative z-10 px-8 pb-8 flex-1">
+                    <p className="text-beige-dark text-[10px] font-medium mb-4">
+                      {designer.title}
+                    </p>
+                    <p className="font-body text-silver text-[10px] leading-relaxed mb-6 line-clamp-3">
+                      {designer.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
       </div>
 

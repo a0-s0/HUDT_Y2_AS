@@ -16,6 +16,8 @@ export default function Home() {
 
       <TrendQuiz />
 
+      <div className="pb-20"></div>
+
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="font-body text-xs text-silver/50">

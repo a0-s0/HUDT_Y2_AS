@@ -17,16 +17,9 @@ export function Timeline() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
-            1995 — 1999
-          </p>
-          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
+          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center mx-auto">
             Timeline
           </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg text-center">
-            Click a year to reveal the cultural events and fashion movements
-            that defined it.
-          </p>
         </motion.div>
 
         <div className="flex justify-center gap-4 md:gap-8 mb-20">
@@ -127,7 +120,7 @@ export function Timeline() {
             animate={{ opacity: 1 }}
             className="text-center text-silver text-base"
           >
-            Select a year above to explore
+            &nbsp;
           </motion.div>
         )}
       </div>
