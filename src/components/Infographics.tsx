@@ -16,7 +16,6 @@ import {
   Radar,
 } from "recharts";
 import {
-  logoSaturationData,
   parisVsNyData,
 } from "@/data/designerData";
 import { WorldMap } from "./WorldMap";
@@ -220,6 +219,336 @@ function CulturalImpactMap() {
   );
 }
 
+const designers = [
+  { name: "Chanel", slug: "chanel" },
+  { name: "Dior", slug: "dior" },
+  { name: "Yves Saint Laurent", slug: "ysl" },
+  { name: "Calvin Klein", slug: "calvin-klein" },
+  { name: "Ralph Lauren", slug: "ralph-lauren" },
+];
+
+const collectionYears = [1995, 1996, 1997, 1998, 1999];
+
+interface CollectionImage {
+  id: string;
+  designer: string;
+  year: number;
+  season: string;
+  title: string;
+  logoSaturation: number;
+  imageUrl: string;
+  firstviewUrl: string;
+}
+
+const collectionImages: CollectionImage[] = [
+  {
+    id: "chanel-1995",
+    designer: "Chanel",
+    year: 1995,
+    season: "Spring/Summer",
+    title: "Minimalist Elegance",
+    logoSaturation: 20,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002014_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Chanel",
+  },
+  {
+    id: "dior-1995",
+    designer: "Dior",
+    year: 1995,
+    season: "Spring/Summer",
+    title: "Classic Simplicity",
+    logoSaturation: 15,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001987_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Dior",
+  },
+  {
+    id: "ysl-1995",
+    designer: "Yves Saint Laurent",
+    year: 1995,
+    season: "Spring/Summer",
+    title: "Understated Luxury",
+    logoSaturation: 25,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001999_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Yves+Saint+Laurent",
+  },
+  {
+    id: "ck-1995",
+    designer: "Calvin Klein",
+    year: 1995,
+    season: "Spring/Summer",
+    title: "Minimalist Pioneer",
+    logoSaturation: 10,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002001_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Calvin+Klein",
+  },
+  {
+    id: "rl-1995",
+    designer: "Ralph Lauren",
+    year: 1995,
+    season: "Spring/Summer",
+    title: "Classic Americana",
+    logoSaturation: 30,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002003_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Ralph+Lauren",
+  },
+  {
+    id: "chanel-1997",
+    designer: "Chanel",
+    year: 1997,
+    season: "Fall/Winter",
+    title: "Rising Logo Presence",
+    logoSaturation: 45,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002014_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Chanel",
+  },
+  {
+    id: "dior-1997",
+    designer: "Dior",
+    year: 1997,
+    season: "Fall/Winter",
+    title: "Saddle Bag Era",
+    logoSaturation: 50,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001987_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Dior",
+  },
+  {
+    id: "ysl-1997",
+    designer: "Yves Saint Laurent",
+    year: 1997,
+    season: "Fall/Winter",
+    title: "Muse Collection",
+    logoSaturation: 40,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001999_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Yves+Saint+Laurent",
+  },
+  {
+    id: "ck-1997",
+    designer: "Calvin Klein",
+    year: 1997,
+    season: "Fall/Winter",
+    title: "Minimalism Peak",
+    logoSaturation: 35,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002001_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Calvin+Klein",
+  },
+  {
+    id: "rl-1997",
+    designer: "Ralph Lauren",
+    year: 1997,
+    season: "Fall/Winter",
+    title: "Icon Visibility",
+    logoSaturation: 60,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002003_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Ralph+Lauren",
+  },
+  {
+    id: "chanel-1999",
+    designer: "Chanel",
+    year: 1999,
+    season: "Fall/Winter",
+    title: "Logo Dominance",
+    logoSaturation: 75,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002014_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Chanel",
+  },
+  {
+    id: "dior-1999",
+    designer: "Dior",
+    year: 1999,
+    season: "Fall/Winter",
+    title: "Peak Luxury",
+    logoSaturation: 85,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001987_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Dior",
+  },
+  {
+    id: "ysl-1999",
+    designer: "Yves Saint Laurent",
+    year: 1999,
+    season: "Fall/Winter",
+    title: "Heritage Logo",
+    logoSaturation: 70,
+    imageUrl: "https://images.firstview.com/looks/000000/0000001999_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Yves+Saint+Laurent",
+  },
+  {
+    id: "ck-1999",
+    designer: "Calvin Klein",
+    year: 1999,
+    season: "Fall/Winter",
+    title: "Minimalism Fades",
+    logoSaturation: 55,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002001_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Calvin+Klein",
+  },
+  {
+    id: "rl-1999",
+    designer: "Ralph Lauren",
+    year: 1999,
+    season: "Fall/Winter",
+    title: "Y2K Power",
+    logoSaturation: 90,
+    imageUrl: "https://images.firstview.com/looks/000000/0000002003_Large.jpg?s=600&c=1",
+    firstviewUrl: "https://www.firstview.com/alpha_list.php?type=designer&deslist=1&s=Ralph+Lauren",
+  },
+];
+
+function LogoSaturationGallery() {
+  const [selectedYear, setSelectedYear] = useState<number>(1999);
+  const [selectedDesigner, setSelectedDesigner] = useState<string>("Chanel");
+  const [selectedImage, setSelectedImage] = useState<CollectionImage | null>(null);
+
+  const filteredImages = collectionImages.filter(
+    (img) => img.year === selectedYear && img.designer === selectedDesigner
+  );
+
+  const currentImage = filteredImages[0] || null;
+
+  const allDesignersInYear = Array.from(
+    new Set(collectionImages.filter((img) => img.year === selectedYear).map((img) => img.designer))
+  );
+
+  return (
+    <div className="space-y-6">
+      {/* Year selector */}
+      <div>
+        <p className="font-body text-xs text-silver uppercase tracking-widest mb-3">
+          Select Year
+        </p>
+        <div className="flex gap-2 flex-wrap">
+          {collectionYears.map((year) => (
+            <button
+              key={year}
+              onClick={() => setSelectedYear(year)}
+              className={`px-4 py-2 rounded-sm transition-all duration-300 font-body text-sm ${
+                selectedYear === year
+                  ? "bg-charcoal text-offwhite"
+                  : "bg-light-gray text-silver hover:text-charcoal border border-border"
+              }`}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Designer selector */}
+      <div>
+        <p className="font-body text-xs text-silver uppercase tracking-widest mb-3">
+          Select Designer
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+          {designers.map((designer) => {
+            const hasCollectionInYear = collectionImages.some(
+              (img) => img.year === selectedYear && img.designer === designer.name
+            );
+
+            return (
+              <button
+                key={designer.name}
+                onClick={() => setSelectedDesigner(designer.name)}
+                disabled={!hasCollectionInYear}
+                className={`px-3 py-2 rounded-sm transition-all duration-300 font-body text-xs font-medium ${
+                  selectedDesigner === designer.name
+                    ? "bg-charcoal text-offwhite"
+                    : hasCollectionInYear
+                      ? "bg-light-gray text-silver hover:text-charcoal border border-border"
+                      : "bg-light-gray text-silver/40 border border-border/50 cursor-not-allowed opacity-50"
+                }`}
+              >
+                {designer.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Image gallery */}
+      {currentImage && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="space-y-4"
+        >
+          {/* Main image */}
+          <div className="relative w-full bg-light-gray rounded-sm overflow-hidden border border-border">
+            <img
+              src={currentImage.imageUrl}
+              alt={currentImage.title}
+              className="w-full h-auto object-cover max-h-96"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23E0D5C5' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-family='var(--font-inter)' font-size='16' fill='%23888888' text-anchor='middle' dominant-baseline='middle'%3EImage from FirstView%3C/text%3E%3C/svg%3E";
+              }}
+            />
+            {/* Logo saturation badge */}
+            <div className="absolute top-4 right-4 bg-charcoal text-offwhite px-3 py-1 rounded-sm">
+              <p className="font-body text-xs font-bold">
+                {currentImage.logoSaturation}% Logo
+              </p>
+            </div>
+          </div>
+
+          {/* Image details */}
+          <div className="bg-light-gray rounded-sm p-4 border border-border space-y-3">
+            <div>
+              <h4 className="font-heading text-sm text-charcoal mb-1">
+                {currentImage.title}
+              </h4>
+              <p className="font-body text-xs text-silver">
+                {currentImage.designer} • {currentImage.season} {currentImage.year}
+              </p>
+            </div>
+
+            {/* Logo saturation progress */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <p className="font-body text-xs text-silver uppercase tracking-widest">
+                  Logo Saturation
+                </p>
+                <p className="font-heading text-sm text-charcoal font-bold">
+                  {currentImage.logoSaturation}%
+                </p>
+              </div>
+              <div className="w-full bg-white h-2 rounded-full overflow-hidden border border-border">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${currentImage.logoSaturation}%` }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="h-full bg-charcoal"
+                />
+              </div>
+            </div>
+
+            {/* View on FirstView link */}
+            <a
+              href={currentImage.firstviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-body text-xs text-charcoal hover:text-beige-dark transition-colors duration-300 underline"
+            >
+              View on FirstView →
+            </a>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Info box */}
+      <div className="bg-light-gray border border-border rounded-sm p-4">
+        <p className="font-body text-xs text-silver uppercase tracking-widest mb-2">
+          How to use
+        </p>
+        <ul className="space-y-1 text-xs font-body text-charcoal">
+          <li>• Select a year to see fashion evolution (1995–1999)</li>
+          <li>• Choose a designer to view their collection progression</li>
+          <li>• Logo saturation % shows the prevalence of branding in each collection</li>
+          <li>• Click "View on FirstView" to explore full collections on the archive</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export function Infographics() {
   const [cityView, setCityView] = useState<"paris" | "newYork">("paris");
   const activeCity =
@@ -337,59 +666,9 @@ export function Infographics() {
               The rise of designer logos vs. the decline of minimalism (1995—1999)
             </p>
 
-            <div className="h-72 mb-6">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={logoSaturationData}>
-                  <defs>
-                    <linearGradient id="satGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#1A1A1A" stopOpacity={0.15} />
-                      <stop offset="95%" stopColor="#1A1A1A" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="minGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#C4B5A0" stopOpacity={0.15} />
-                      <stop offset="95%" stopColor="#C4B5A0" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                  <XAxis
-                    dataKey="year"
-                    tick={{ fill: axisColor, fontSize: 12 }}
-                    axisLine={{ stroke: gridColor }}
-                  />
-                  <YAxis
-                    tick={{ fill: axisColor, fontSize: 10 }}
-                    axisLine={{ stroke: gridColor }}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "#F5F0E8",
-                      border: "1px solid #E0D5C5",
-                      borderRadius: "4px",
-                      color: "#1A1A1A",
-                      fontFamily: "var(--font-inter)",
-                    }}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="saturation"
-                    name="Logo Saturation"
-                    stroke="#1A1A1A"
-                    fill="url(#satGrad)"
-                    strokeWidth={2}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="minimalism"
-                    name="Minimalism"
-                    stroke="#C4B5A0"
-                    fill="url(#minGrad)"
-                    strokeWidth={2}
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
+            <LogoSaturationGallery />
 
-            <div className="bg-light-gray rounded-sm p-4 border border-border">
+            <div className="bg-light-gray rounded-sm p-4 border border-border mt-6">
               <p className="font-body text-silver text-xs tracking-widest uppercase mb-1">
                 Key Insight
               </p>
