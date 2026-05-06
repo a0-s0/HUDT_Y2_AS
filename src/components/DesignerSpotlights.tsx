@@ -9,7 +9,7 @@ export function DesignerSpotlights() {
   const [selectedDesigner, setSelectedDesigner] = useState<typeof designerData[0] | null>(null);
 
   return (
-    <section id="designers" className="py-32 md:py-48 px-4 bg-light-gray">
+    <section id="designers" className="py-32 md:py-48 px-4">
       <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

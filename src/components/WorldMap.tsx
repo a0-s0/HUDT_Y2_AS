@@ -59,18 +59,18 @@ export function WorldMap() {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-none">
-        <div className="relative w-full overflow-hidden bg-white p-8 md:p-12 flex flex-col items-center rounded-xl">
-          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-4 text-center">
+        <div className="relative w-full overflow-hidden bg-white p-12 md:p-16 flex flex-col items-center rounded-2xl">
+          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center">
             Cultural Impact
           </h3>
-          <div className="flex gap-2 justify-center mb-6">
+          <div className="flex gap-3 justify-center mb-8">
             {[1995, 1996, 1997, 1998, 1999].map((year) => (
               <button
                 key={year}
                 onClick={() =>
                   setYearFilter(yearFilter === year ? null : year)
                 }
-                className={`px-3 py-1.5 text-xs rounded-sm transition-all duration-300 font-body ${
+                className={`px-4 py-2 text-sm rounded-md transition-all duration-300 font-body ${
                   yearFilter === year
                     ? "bg-deep-brown text-offwhite"
                     : "text-silver hover:text-deep-brown"
@@ -81,7 +81,7 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1300 500"
+            viewBox="0 0 1248 960"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >

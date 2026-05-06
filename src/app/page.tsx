@@ -15,22 +15,28 @@ export default function Home() {
         <Timeline />
       </div>
       
+      <div className="py-8"></div>
+      
       <div className="flex flex-col items-center">
         <DesignerSpotlights />
       </div>
       
+      <div className="py-8"></div>
+      
       <div className="flex flex-col items-center">
         <Infographics />
       </div>
-
+      
+      <div className="py-8"></div>
+      
       <div className="flex flex-col items-center">
         <TrendQuiz />
       </div>
-
+      
       <div className="py-10"></div>
-
+      
       <div className="py-10"></div>
-
+      
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="font-body text-xs text-silver/50">

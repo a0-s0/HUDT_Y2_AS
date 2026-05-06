@@ -97,22 +97,16 @@ export function TrendQuiz() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2
-            className="font-heading text-[28px] md:text-[36px] font-bold uppercase mb-4 text-deep-brown text-center cursor-pointer hover:scale-110 transition-transform duration-300"
-          >
+          <h2 className="font-heading text-[28px] md:text-[36px] font-bold uppercase mb-4 text-deep-brown text-center cursor-pointer hover:scale-110 transition-transform duration-300">
             Which 90s Trend Are You?
           </h2>
         </motion.div>
 
-        <AnimatePresence mode="wait">
-          {!showResult ? (
-            <motion.div
-              key={currentQuestion}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-xl p-8 md:p-10 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white rounded-xl p-8 md:p-10 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               <div className="mb-6">
                 <div className="flex items-center justify-center gap-3 mb-3">
@@ -130,6 +124,7 @@ export function TrendQuiz() {
                     ))}
                   </div>
                 </div>
+
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-deep-brown mb-4">
                   {questions[currentQuestion].question}
                 </h3>
