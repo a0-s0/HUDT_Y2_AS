@@ -56,6 +56,19 @@ export function WorldMap() {
     impact: Math.min(value, 100),
   })).sort((a, b) => a.year - b.year);
 
+  // Event handlers
+  const handleEventClick = (event: CulturalEvent) => {
+    setSelectedEvent(event);
+  };
+
+  const handleEventHover = (event: CulturalEvent) => {
+    setHoveredEvent(event);
+  };
+
+  const handleEventLeave = () => {
+    setHoveredEvent(null);
+  };
+
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-none">
@@ -81,10 +94,12 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1000 400"
+            viewBox="0 0 1248 960"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
+            {/* Scale everything to fill the 1248x960 viewBox */}
+            <g transform="scale(2.2) translate(30, 40)">
             {/* Simplified world map outline */}
             <g stroke="#E0D5C5" strokeWidth="0.8" fill="none">
               <path d="M120,80 L160,70 L200,75 L230,90 L250,85 L270,100 L260,120 L280,130 L270,150 L260,170 L240,180 L230,200 L200,190 L180,200 L160,180 L140,160 L120,140 L100,120 Z" />
@@ -129,26 +144,34 @@ export function WorldMap() {
                       />
                     </circle>
                   )}
-
+                  
                   {/* Main spot */}
                   <motion.circle
                     cx={event.x}
                     cy={event.y}
-                    r={isHovered ? radius + 2 : radius}
+                    r={isHovered ? radius * 1.3 : radius}
                     fill="#3D2B1F"
-                    opacity={isHovered ? 1 : 0.7}
-                    stroke="#F5F0E8"
-                    strokeWidth="1.5"
-                    className="cursor-pointer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: isHovered ? 1 : 0.7, scale: 1 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    onMouseEnter={() => setHoveredEvent(event)}
-                    onMouseLeave={() => setHoveredEvent(null)}
-                    onClick={() => setSelectedEvent(event)}
+                    opacity={isHovered ? 0.9 : 0.6}
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleEventClick(event)}
+                    onMouseEnter={() => handleEventHover(event)}
+                    onMouseLeave={handleEventLeave}
+                    whileHover={{ scale: 1.5 }}
+                    transition={{ duration: 0.2 }}
                   />
-
-                  {/* Year label removed */}
+                  
+                  {/* Year label */}
+                  <text
+                    x={event.x}
+                    y={event.y - radius - 5}
+                    textAnchor="middle"
+                    fill="#3D2B1F"
+                    fontSize="8"
+                    fontFamily="Helvetica Neue, Arial, sans-serif"
+                    opacity={isHovered ? 1 : 0.7}
+                  >
+                    {event.year}
+                  </text>
                 </g>
               );
             })}
@@ -162,7 +185,7 @@ export function WorldMap() {
                   textAnchor="middle"
                   fill="#888888"
                   fontSize="7"
-                  fontFamily="var(--font-inter)"
+                  fontFamily="Helvetica Neue, Arial, sans-serif"
                 >
                   {capital.name}
                 </text>
@@ -172,7 +195,7 @@ export function WorldMap() {
             {/* Cultural Impact Bar Chart at bottom */}
             {/* Background */}
             <rect x="100" y="290" width="700" height="40" fill="#F5F0E8" rx="4" />
-
+            
             {/* Bars */}
             {yearChartData.map((item, i) => {
               const barWidth = 120;
@@ -197,7 +220,7 @@ export function WorldMap() {
                     textAnchor="middle"
                     fill="#3D2B1F"
                     fontSize="8"
-                    fontFamily="var(--font-inter)"
+                    fontFamily="Helvetica Neue, Arial, sans-serif"
                     fontWeight="500"
                   >
                     {item.year}
@@ -205,6 +228,7 @@ export function WorldMap() {
                 </g>
               );
             })}
+            </g>
           </svg>
 
           {/* Hover tooltip - show themes */}
