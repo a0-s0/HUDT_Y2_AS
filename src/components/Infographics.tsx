@@ -42,7 +42,7 @@ export function Infographics() {
           className="text-center mb-20"
         >
           <h2 className="font-heading text-[28px] md:text-[36px] lg:text-[40px] font-bold uppercase mb-6 text-deep-brown text-center">
-            Socio-Political Impact
+            
           </h2>
         </motion.div>
 
@@ -134,7 +134,7 @@ export function Infographics() {
             <h3 className="font-heading text-[20px] md:text-[24px] font-bold uppercase text-deep-brown mb-2 text-center">
               Logo Saturation Index
             </h3>
-            <p className="font-body text-silver text-sm mb-6 max-w-md mx-auto text-center">
+            <p className="font-body text-silver text-sm mb-6 max-w-lg mx-auto text-center">
               The rise of designer logos vs. the decline of minimalism (1995—1999)
             </p>
 
@@ -190,15 +190,10 @@ export function Infographics() {
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-light-gray rounded-lg p-4 max-w-sm mx-auto text-center">
-              <p className="font-body text-silver text-xs tracking-widest uppercase mb-1">
-                Key Insight
-              </p>
-              <p className="font-body text-deep-brown text-sm">
-                By 1999, logo visibility had quadrupled from 1995 levels, while
-                minimalist aesthetics declined by over 60%.
-              </p>
-            </div>
+            <p className="font-body text-deep-brown text-sm text-center mb-2">
+              By 1999, logo visibility had quadrupled from 1995 levels, while
+              minimalist aesthetics declined by over 60%.
+            </p>
           </motion.div>
         </div>
       </div>
