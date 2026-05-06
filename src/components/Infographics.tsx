@@ -190,7 +190,7 @@ export function Infographics() {
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-light-gray rounded-lg p-4 max-w-sm mx-auto">
+            <div className="bg-light-gray rounded-lg p-4 max-w-sm mx-auto text-center">
               <p className="font-body text-silver text-xs tracking-widest uppercase mb-1">
                 Key Insight
               </p>

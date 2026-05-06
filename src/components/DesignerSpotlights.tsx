@@ -23,7 +23,7 @@ export function DesignerSpotlights() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-4 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-4 justify-center">
             {designerData.map((designer, index) => (
               <motion.div
                 key={designer.id}
@@ -34,24 +34,31 @@ export function DesignerSpotlights() {
                 onClick={() => setSelectedDesigner(designer)}
                 className="relative group cursor-pointer"
               >
-                <div className="relative h-[240px] overflow-hidden bg-white rounded-xl">
-                  <div className="relative z-10 p-10">
-                    <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-6">
+                <div className="relative h-[180px] overflow-hidden bg-white rounded-xl">
+                  <div className="relative z-10 p-8 flex flex-col items-center justify-center h-full">
+                    <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-4">
                       {designer.nationality}
                     </p>
-                    <h3 className="font-heading text-[11px] md:text-[12px] font-bold uppercase text-deep-brown mb-6 whitespace-nowrap overflow-hidden text-ellipsis px-10">
+                    <h3 className="font-heading text-[14px] md:text-[16px] font-bold uppercase text-deep-brown mb-4 text-center">
                       {designer.name}
                     </h3>
-                    <p className="font-body text-silver text-[10px] px-10">{designer.period}</p>
-                  </div>
-
-                  <div className="relative z-10 px-10 pb-10 flex-1">
-                    <p className="text-beige-dark text-[10px] font-medium mb-6">
+                    <p className="font-body text-silver text-[10px] text-center">
                       {designer.title}
                     </p>
-                    <p className="font-body text-silver text-[10px] leading-relaxed mb-4 line-clamp-3">
+                  </div>
+
+                  {/* Hover overlay with more info */}
+                  <div className="absolute inset-0 bg-deep-brown/95 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="font-body text-offwhite text-[10px] mb-3 text-center leading-relaxed line-clamp-4">
                       {designer.description}
                     </p>
+                    <div className="flex flex-wrap gap-1 justify-center mt-2">
+                      {designer.fabrics.slice(0, 3).map((fabric) => (
+                        <span key={fabric} className="px-2 py-0.5 bg-offwhite/20 text-[8px] text-offwhite rounded">
+                          {fabric}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
