@@ -50,6 +50,8 @@ export function Infographics() {
           <WorldMap />
         </div>
 
+        <div className="h-[15px]"></div>
+
         <div className="flex flex-col items-center justify-center gap-8 mb-20 max-w-4xl mx-auto">
           {/* Paris vs New York - Smaller centered box */}
           <motion.div
