@@ -56,18 +56,19 @@ export function Infographics() {
           <WorldMap />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+        <div className="space-y-8 mb-20">
+          {/* Paris vs New York - Stacked vertically, center-aligned */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-6 md:p-8"
+            className="bg-white rounded-xl p-6 md:p-8 text-center"
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown">
                 {activeCity.label}
               </h3>
-              <div className="flex bg-light-gray rounded-lg p-0.5">
+              <div className="flex bg-light-gray rounded-lg p-0.5 mx-auto">
                 <button
                   onClick={() => setCityView("paris")}
                   className={`px-4 py-2 text-sm rounded-md transition-all duration-300 ${
@@ -91,13 +92,13 @@ export function Infographics() {
               </div>
             </div>
 
-            <p className="text-silver text-sm mb-6">
+            <p className="text-silver text-sm mb-6 max-w-lg mx-auto">
               {activeCity.label === "Paris: Theatricality & Conglomeration"
                 ? "Parisian fashion: theatricality meets luxury conglomeration"
                 : "New York fashion: minimalism meets commercial appeal"}
             </p>
 
-            <div className="h-72 mb-6">
+            <div className="h-72 mb-6 max-w-2xl mx-auto">
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={activeCity.themes}>
                   <PolarGrid stroke={gridColor} />
@@ -117,7 +118,7 @@ export function Infographics() {
               </ResponsiveContainer>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center">
               {activeCity.designers.map((d) => (
                 <span
                   key={d}
@@ -129,20 +130,21 @@ export function Infographics() {
             </div>
           </motion.div>
 
+          {/* Logo Saturation Index - Center-aligned */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl p-6 md:p-8"
+            className="bg-white rounded-xl p-6 md:p-8 text-center"
           >
             <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown mb-2">
               Logo Saturation Index
             </h3>
-            <p className="font-body text-silver text-sm mb-6">
+            <p className="font-body text-silver text-sm mb-6 max-w-lg mx-auto">
               The rise of designer logos vs. the decline of minimalism (1995—1999)
             </p>
 
-            <div className="h-72 mb-6">
+            <div className="h-72 mb-6 max-w-2xl mx-auto">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={logoSaturationData}>
                   <defs>
@@ -194,7 +196,7 @@ export function Infographics() {
               </ResponsiveContainer>
             </div>
 
-            <div className="bg-light-gray rounded-lg p-4">
+            <div className="bg-light-gray rounded-lg p-4 max-w-lg mx-auto">
               <p className="font-body text-silver text-xs tracking-widest uppercase mb-1">
                 Key Insight
               </p>

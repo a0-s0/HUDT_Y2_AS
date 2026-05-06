@@ -64,8 +64,6 @@ export function TrendQuiz() {
       setCurrentQuestion(currentQuestion + 1);
       setAnswers(newAnswers);
     } else {
-      // Calculate result
-      const avgWeight = newAnswers.reduce((a, b) => a + b, 0) / newAnswers.length;
       setAnswers(newAnswers);
       setShowResult(true);
     }
@@ -91,7 +89,7 @@ export function TrendQuiz() {
 
   return (
     <section id="quiz" className="py-32 md:py-48 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,37 +97,34 @@ export function TrendQuiz() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
+          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-4">
             Interactive Q&A
           </p>
-          <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown">
+          <h2 className="font-heading text-[36px] md:text-[42px] font-bold uppercase mb-4 text-deep-brown">
             Which 90s Trend Are You?
           </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
-            Answer 4 questions to discover your 90s fashion persona
-          </p>
         </motion.div>
 
         <AnimatePresence mode="wait">
           {!showResult ? (
             <motion.div
               key={currentQuestion}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-xl p-8 md:p-12"
+              className="bg-white rounded-xl p-6 md:p-8"
             >
-              <div className="mb-8">
-                <div className="flex items-center justify-between mb-4">
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-3">
                   <span className="font-body text-xs text-silver uppercase tracking-widest">
-                    Question {currentQuestion + 1}/{questions.length}
+                    Q{currentQuestion + 1}/{questions.length}
                   </span>
                   <div className="flex gap-1">
                     {questions.map((_, i) => (
                       <div
                         key={i}
-                        className={`h-1 w-8 rounded-full ${
+                        className={`h-1 w-6 rounded-full ${
                           i <= currentQuestion ? "bg-deep-brown" : "bg-light-gray"
                         }`}
                       />
@@ -137,64 +132,54 @@ export function TrendQuiz() {
                   </div>
                 </div>
 
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase text-deep-brown mb-6">
+                <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-deep-brown">
                   {questions[currentQuestion].question}
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-wrap gap-3 justify-center">
                 {questions[currentQuestion].options.map((option, idx) => (
                   <motion.button
                     key={option}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleAnswer(questions[currentQuestion].weights[idx])}
-                    className="p-4 text-left bg-light-gray hover:bg-deep-brown hover:text-offwhite transition-all duration-300 rounded-lg"
+                    className="px-4 py-2.5 bg-light-gray hover:bg-deep-brown hover:text-offwhite transition-all duration-300 rounded-lg text-sm whitespace-nowrap"
                   >
-                    <span className="font-body text-sm">{option}</span>
+                    {option}
                   </motion.button>
                 ))}
               </div>
             </motion.div>
           ) : (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-xl p-8 md:p-12 text-center"
+              className="bg-white rounded-xl p-6 md:p-8 text-center"
             >
-              <div
-                className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl"
-                style={{ backgroundColor: trend.color + "20" }}
-              >
-                <span style={{ color: trend.color }}>{trend.icon}</span>
-              </div>
-
-              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-4">
-                {trend.title}
-              </h3>
-
-              <p className="font-body text-deep-brown text-base mb-8 max-w-lg mx-auto">
-                {trend.description}
-              </p>
-
-              <div className="flex items-center justify-center gap-3 mb-8">
-                {Object.entries(trends).map(([key, t]) => (
-                  <div
-                    key={key}
-                    className={`w-12 h-1.5 rounded-full transition-all duration-300 ${
-                      key === result ? "" : "opacity-30"
-                    }`}
-                    style={{ backgroundColor: t.color }}
-                  />
-                ))}
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-xl"
+                  style={{ backgroundColor: trend.color + "20" }}
+                >
+                  <span style={{ color: trend.color }}>{trend.icon}</span>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-heading text-xl font-bold uppercase text-deep-brown">
+                    {trend.title}
+                  </h3>
+                  <p className="font-body text-deep-brown text-sm">
+                    {trend.description}
+                  </p>
+                </div>
               </div>
 
               <button
                 onClick={resetQuiz}
-                className="px-6 py-3 bg-deep-brown text-offwhite font-body text-sm uppercase tracking-widest rounded-lg hover:bg-deep-brown/80 transition-colors"
+                className="mt-4 px-6 py-2 bg-deep-brown text-offwhite font-body text-xs uppercase tracking-widest rounded-lg hover:bg-deep-brown/80 transition-colors"
               >
-                Take Quiz Again
+                Retry
               </button>
             </motion.div>
           )}

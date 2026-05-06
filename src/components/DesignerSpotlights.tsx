@@ -46,7 +46,7 @@ export function DesignerSpotlights() {
                   <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
                     {designer.nationality}
                   </p>
-                  <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <h3 className="font-heading text-[18px] md:text-[22px] font-bold uppercase text-deep-brown mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
                     {designer.name}
                   </h3>
                   <p className="font-body text-silver text-xs">{designer.period}</p>

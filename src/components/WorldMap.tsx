@@ -12,6 +12,15 @@ const fashionCapitals = [
   { id: "tokyo", name: "Tokyo", x: 790, y: 175, label: "Japan" },
 ];
 
+// Year-to-color mapping for the bar chart overlay
+const yearColors: Record<number, string> = {
+  1995: "#3D2B1F",
+  1996: "#C4B5A0",
+  1997: "#888888",
+  1998: "#A89880",
+  1999: "#B8960C",
+};
+
 export function WorldMap() {
   const [selectedEvent, setSelectedEvent] = useState<CulturalEvent | null>(null);
   const [yearFilter, setYearFilter] = useState<number | null>(null);
@@ -20,6 +29,18 @@ export function WorldMap() {
   const filteredEvents = yearFilter
     ? culturalImpactData.filter((e) => e.year === yearFilter)
     : culturalImpactData;
+
+  // Group events by year for the bar chart overlay
+  const eventsByYear = culturalImpactData.reduce((acc, event) => {
+    if (!acc[event.year]) acc[event.year] = 0;
+    acc[event.year] += event.impact;
+    return acc;
+  }, {} as Record<number, number>);
+
+  const yearChartData = Object.entries(eventsByYear).map(([year, value]) => ({
+    year: parseInt(year),
+    impact: Math.min(value, 100),
+  })).sort((a, b) => a.year - b.year);
 
   return (
     <div>
@@ -51,7 +72,7 @@ export function WorldMap() {
 
       <div className="relative w-full overflow-hidden bg-white p-6 md:p-8">
         <svg
-          viewBox="0 0 900 300"
+          viewBox="0 0 900 340"
           className="w-full h-auto"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -68,7 +89,7 @@ export function WorldMap() {
           {/* Cultural impact spots */}
           {filteredEvents.map((event, i) => {
             const isHovered = hoveredEvent?.year === event.year && hoveredEvent?.event === event.event;
-            const radius = (event.impact / 100) * 12 + 4;
+            const radius = (event.impact / 100) * 10 + 3; // Smaller, cleaner spots
 
             return (
               <g key={`${event.year}-${i}`}>
@@ -86,7 +107,7 @@ export function WorldMap() {
                     <animate
                       attributeName="r"
                       from={radius.toString()}
-                      to={(radius * 2).toString()}
+                      to={(radius * 1.8).toString()}
                       dur="2s"
                       repeatCount="indefinite"
                     />
@@ -106,29 +127,29 @@ export function WorldMap() {
                   cy={event.y}
                   r={isHovered ? radius + 2 : radius}
                   fill="#3D2B1F"
-                  opacity={isHovered ? 0.9 : 0.6}
+                  opacity={isHovered ? 1 : 0.7}
                   stroke="#F5F0E8"
                   strokeWidth="1.5"
                   className="cursor-pointer"
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: isHovered ? 0.9 : 0.6, scale: 1 }}
+                  animate={{ opacity: isHovered ? 1 : 0.7, scale: 1 }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   onMouseEnter={() => setHoveredEvent(event)}
                   onMouseLeave={() => setHoveredEvent(null)}
                   onClick={() => setSelectedEvent(event)}
                 />
 
-                {/* Event label */}
+                {/* Year label only - cleaner look */}
                 <text
-                  x={event.x + radius + 5}
-                  y={event.y + 3}
-                  textAnchor="start"
+                  x={event.x}
+                  y={event.y - radius - 4}
+                  textAnchor="middle"
                   fill="#3D2B1F"
-                  fontSize="6"
+                  fontSize="8"
                   fontFamily="var(--font-inter)"
-                  fontWeight="500"
+                  fontWeight="600"
                 >
-                  {event.year}: {event.event.substring(0, 20)}
+                  {event.year}
                 </text>
               </g>
             );
@@ -149,28 +170,68 @@ export function WorldMap() {
               </text>
             </g>
           ))}
+
+          {/* Cultural Impact Bar Chart at bottom */}
+          {/* Background */}
+          <rect x="100" y="290" width="700" height="40" fill="#F5F0E8" rx="4" />
+
+          {/* Bars */}
+          {yearChartData.map((item, i) => {
+            const barWidth = 120;
+            const x = 120 + i * (barWidth + 15);
+            const barHeight = (item.impact / 100) * 35;
+            const barColor = yearColors[item.year as keyof typeof yearColors] || "#3D2B1F";
+
+            return (
+              <g key={item.year}>
+                <rect
+                  x={x}
+                  y={290 + (35 - barHeight)}
+                  width={barWidth}
+                  height={barHeight}
+                  fill={barColor}
+                  opacity="0.7"
+                  rx="2"
+                />
+                <text
+                  x={x + barWidth / 2}
+                  y="335"
+                  textAnchor="middle"
+                  fill="#3D2B1F"
+                  fontSize="8"
+                  fontFamily="var(--font-inter)"
+                  fontWeight="500"
+                >
+                  {item.year}
+                </text>
+              </g>
+            );
+          })}
         </svg>
 
-        {/* Hover tooltip */}
+        {/* Hover tooltip - clean design */}
         <AnimatePresence>
           {hoveredEvent && !selectedEvent && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute bottom-4 left-4 right-4 bg-offwhite p-4 md:p-6"
+              className="absolute top-4 left-4 bg-offwhite p-3 md:p-4 shadow-lg rounded-lg"
             >
-              <p className="font-body text-silver tracking-widest uppercase text-xs mb-2">
-                {hoveredEvent.year} — Impact: {hoveredEvent.impact}%
-              </p>
-              <h4 className="font-heading text-lg md:text-xl font-bold uppercase text-deep-brown mb-2">
+              <div className="flex items-center gap-2 mb-1">
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: yearColors[hoveredEvent.year as keyof typeof yearColors] || "#3D2B1F" }}
+                />
+                <p className="font-body text-xs text-silver uppercase tracking-widest">
+                  {hoveredEvent.year}
+                </p>
+              </div>
+              <h4 className="font-heading text-sm md:text-base font-bold text-deep-brown mb-1">
                 {hoveredEvent.event}
               </h4>
-              <p className="font-body text-sm text-silver">
-                {hoveredEvent.description}
-              </p>
-              <p className="font-body text-xs text-silver/50 mt-2">
-                Click for details
+              <p className="font-body text-xs text-silver">
+                Impact: {hoveredEvent.impact}%
               </p>
             </motion.div>
           )}

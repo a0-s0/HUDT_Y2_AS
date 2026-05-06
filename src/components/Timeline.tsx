@@ -64,7 +64,7 @@ export function Timeline() {
               {(() => {
                 const data = timelineData.find((d) => d.year === selectedYear)!;
                 return (
-                  <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                  <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
