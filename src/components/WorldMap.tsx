@@ -61,17 +61,17 @@ export function WorldMap() {
   return (
     <div className="w-full">
       <div className="relative w-full overflow-hidden bg-white rounded-2xl">
-        <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center mt-12">
+        <h3 className="font-heading text-[24px] md:text-[32px] font-bold uppercase text-deep-brown mb-3 text-center mt-6">
           Cultural Impact
         </h3>
-        <div className="flex gap-3 justify-center mb-8">
+        <div className="flex gap-2 justify-center mb-4">
           {[1995, 1996, 1997, 1998, 1999].map((year) => (
             <button
               key={year}
               onClick={() =>
                 setYearFilter(yearFilter === year ? null : year)
               }
-              className={`px-4 py-2 text-sm rounded-md transition-all duration-300 font-body ${
+              className={`px-3 py-1 text-xs rounded-md transition-all duration-300 font-body ${
                 yearFilter === year
                   ? "bg-deep-brown text-offwhite"
                   : "text-silver hover:text-deep-brown"
