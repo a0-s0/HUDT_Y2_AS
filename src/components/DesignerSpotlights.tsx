@@ -18,7 +18,7 @@ export function DesignerSpotlights() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="font-heading text-[40px] md:text-[50px] lg:text-[60px] font-bold uppercase mb-8 text-deep-brown text-center">
+            <h2 className="font-heading text-[32px] md:text-[40px] lg:text-[48px] font-bold uppercase mb-6 text-deep-brown text-center">
               Designer Spotlights
             </h2>
           </motion.div>

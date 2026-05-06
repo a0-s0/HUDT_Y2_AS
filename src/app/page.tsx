@@ -27,9 +27,9 @@ export default function Home() {
         <TrendQuiz />
       </div>
 
-      <div className="py-5"></div>
+      <div className="py-10"></div>
 
-      <div className="py-5"></div>
+      <div className="py-10"></div>
 
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">

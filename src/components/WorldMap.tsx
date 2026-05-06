@@ -58,7 +58,7 @@ export function WorldMap() {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-7xl">
         <div className="relative w-full overflow-hidden bg-white p-4 md:p-6 flex flex-col items-center">
           <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-4 text-center">
             Cultural Impact
@@ -81,7 +81,7 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1200 500"
+            viewBox="0 0 1400 600"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >

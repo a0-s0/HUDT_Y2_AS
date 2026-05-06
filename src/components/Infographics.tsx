@@ -41,7 +41,7 @@ export function Infographics() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="font-heading text-[32px] md:text-[40px] lg:text-[48px] font-bold uppercase mb-6 text-deep-brown text-center">
+          <h2 className="font-heading text-[28px] md:text-[36px] lg:text-[40px] font-bold uppercase mb-6 text-deep-brown text-center">
             Socio-Political Impact
           </h2>
         </motion.div>
@@ -59,7 +59,7 @@ export function Infographics() {
             className="bg-white rounded-xl p-6 md:p-8 w-full max-w-xl mx-auto text-center"
           >
             <div className="mb-6">
-              <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-4">
+              <h3 className="font-heading text-[20px] md:text-[24px] font-bold uppercase text-deep-brown mb-4">
                 {activeCity.label}
               </h3>
               <div className="flex bg-light-gray rounded-lg p-0.5 justify-center mx-auto inline-flex">
@@ -131,7 +131,7 @@ export function Infographics() {
             viewport={{ once: true }}
             className="bg-white rounded-xl p-6 md:p-8 w-full max-w-xl mx-auto"
           >
-            <h3 className="font-heading text-[24px] md:text-[28px] font-bold uppercase text-deep-brown mb-2 text-center">
+            <h3 className="font-heading text-[20px] md:text-[24px] font-bold uppercase text-deep-brown mb-2 text-center">
               Logo Saturation Index
             </h3>
             <p className="font-body text-silver text-sm mb-6 max-w-md mx-auto text-center">
