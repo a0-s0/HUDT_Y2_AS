@@ -94,12 +94,12 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1248 960"
+            viewBox="0 0 3024 1964"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* Scale everything to fill the 1248x960 viewBox */}
-            <g transform="scale(2.2) translate(30, 40)">
+            {/* Scale everything to fill the 3024x1964 viewBox */}
+            <g transform="scale(5.2) translate(-20, -30)">
             {/* Simplified world map outline */}
             <g stroke="#E0D5C5" strokeWidth="0.8" fill="none">
               <path d="M120,80 L160,70 L200,75 L230,90 L250,85 L270,100 L260,120 L280,130 L270,150 L260,170 L240,180 L230,200 L200,190 L180,200 L160,180 L140,160 L120,140 L100,120 Z" />
