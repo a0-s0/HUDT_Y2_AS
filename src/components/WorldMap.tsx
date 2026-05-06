@@ -81,8 +81,8 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 1200 500"
-            className="w-full h-auto scale-125"
+            viewBox="0 0 1000 400"
+            className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* Simplified world map outline */}

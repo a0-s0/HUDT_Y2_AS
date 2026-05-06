@@ -18,22 +18,24 @@ export function Hero() {
           Fashion Culture & History
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="font-heading text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-bold uppercase tracking-tight leading-none mb-8 text-deep-brown text-center"
+          transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+          className="font-heading text-[40px] sm:text-[50px] md:text-[60px] lg:text-[70px] font-bold uppercase tracking-tight leading-none mb-8 text-deep-brown text-center cursor-pointer hover:scale-105 transition-transform duration-300"
+          onClick={() => document.getElementById("timeline")?.scrollIntoView({ behavior: "smooth" })}
         >
           THE FASHION
           <br />
           PARADIGM SHIFT
-        </motion.h1>
+        </motion.h2>
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold uppercase max-w-3xl mx-auto mb-8 text-deep-brown/80"
+          transition={{ duration: 1, delay: 0.9 }}
+          className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold uppercase max-w-3xl mx-auto mb-8 text-deep-brown/80 cursor-pointer hover:scale-105 transition-transform duration-300"
+          onClick={() => document.getElementById("timeline")?.scrollIntoView({ behavior: "smooth" })}
         >
           Fashion 1995—1999
         </motion.h2>
