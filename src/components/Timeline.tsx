@@ -8,28 +8,28 @@ export function Timeline() {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   return (
-    <section id="timeline" className="py-20 md:py-32 px-4">
+    <section id="timeline" className="py-32 md:py-48 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-4">
+          <p className="font-body text-silver tracking-[0.3em] uppercase text-sm mb-6">
             1995 — 1999
           </p>
-          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-charcoal">
+          <h2 className="font-heading text-[50px] md:text-[70px] lg:text-[80px] font-bold uppercase mb-8 text-deep-brown">
             Timeline
           </h2>
-          <p className="font-body text-silver max-w-xl mx-auto text-sm md:text-base">
+          <p className="font-body text-silver max-w-xl mx-auto text-base md:text-lg">
             Click a year to reveal the cultural events and fashion movements
             that defined it.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-2 md:gap-4 mb-16">
+        <div className="flex justify-center gap-4 md:gap-8 mb-20">
           {timelineData.map((item) => (
             <motion.button
               key={item.year}
@@ -40,10 +40,10 @@ export function Timeline() {
               }
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-4 md:px-8 py-3 md:py-4 rounded-sm transition-all duration-300 font-heading text-xl md:text-3xl ${
+              className={`relative px-6 md:px-10 py-4 md:py-5 rounded-sm transition-all duration-300 font-heading text-2xl md:text-4xl ${
                 selectedYear === item.year
-                  ? "bg-charcoal text-offwhite"
-                  : "bg-white text-silver hover:text-charcoal border border-border"
+                  ? "bg-deep-brown text-offwhite"
+                  : "bg-white text-silver hover:text-deep-brown"
               }`}
             >
               {item.year}
@@ -64,23 +64,23 @@ export function Timeline() {
               {(() => {
                 const data = timelineData.find((d) => d.year === selectedYear)!;
                 return (
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="bg-white border border-border rounded-sm p-6 md:p-8"
+                      className="bg-white p-8 md:p-12"
                     >
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-px bg-beige" />
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-12 h-px bg-beige" />
                         <p className="font-body text-silver tracking-widest uppercase text-xs">
                           Global Event
                         </p>
                       </div>
-                      <h3 className="font-heading text-xl md:text-2xl text-charcoal mb-3">
+                      <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-4">
                         {data.event.title}
                       </h3>
-                      <p className="font-body text-silver text-sm leading-relaxed">
+                      <p className="font-body text-silver text-base leading-relaxed">
                         {data.event.description}
                       </p>
                     </motion.div>
@@ -89,25 +89,25 @@ export function Timeline() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="bg-white border border-border rounded-sm p-6 md:p-8"
+                      className="bg-white p-8 md:p-12"
                     >
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-px bg-beige" />
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-12 h-px bg-beige" />
                         <p className="font-body text-silver tracking-widest uppercase text-xs">
                           Fashion Trend
                         </p>
                       </div>
-                      <h3 className="font-heading text-xl md:text-2xl text-charcoal mb-3">
+                      <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase text-deep-brown mb-4">
                         {data.fashion.title}
                       </h3>
-                      <p className="font-body text-silver text-sm leading-relaxed mb-4">
+                      <p className="font-body text-silver text-base leading-relaxed mb-6">
                         {data.fashion.description}
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-3">
                         {data.fashion.keywords.map((keyword) => (
                           <span
                             key={keyword}
-                            className="px-3 py-1 bg-light-gray border border-border rounded-sm text-xs text-silver"
+                            className="px-4 py-2 bg-light-gray text-xs text-silver"
                           >
                             {keyword}
                           </span>
@@ -125,7 +125,7 @@ export function Timeline() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center text-silver text-sm"
+            className="text-center text-silver text-base"
           >
             Select a year above to explore
           </motion.div>

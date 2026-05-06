@@ -13,15 +13,15 @@ export default function Home() {
       <DesignerSpotlights />
       <Infographics />
 
-      <footer className="py-12 px-4 border-t border-border">
+      <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="font-heading text-2xl text-charcoal mb-2">
-            1995—1999
+          <p className="font-heading text-[50px] md:text-[80px] font-bold uppercase text-deep-brown mb-4">
+            THE FASHION PARADIGM SHIFT
           </p>
-          <p className="font-body text-xs text-silver">
+          <p className="font-body text-sm text-silver">
             Fashion Culture & History — An Interactive Exploration
           </p>
-          <p className="font-body text-xs text-silver/50 mt-4">
+          <p className="font-body text-xs text-silver/50 mt-8">
             Image archive references: FirstView.com
           </p>
         </div>

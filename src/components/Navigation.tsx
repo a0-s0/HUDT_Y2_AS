@@ -48,35 +48,35 @@ export function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-offwhite/90 backdrop-blur-md border-b border-border"
+          ? "bg-offwhite/90 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <motion.button
             onClick={() => scrollToSection("hero")}
-            className="font-heading text-xl tracking-wider text-charcoal hover:text-beige transition-colors"
+            className="font-heading text-xl tracking-wider text-deep-brown hover:text-silver transition-colors uppercase"
           >
-            1995—1999
+            The Fashion Paradigm Shift
           </motion.button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-12">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`relative text-sm tracking-widest uppercase transition-colors duration-300 ${
                   activeSection === item.id
-                    ? "text-charcoal"
-                    : "text-silver hover:text-charcoal"
+                    ? "text-deep-brown"
+                    : "text-silver hover:text-deep-brown"
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="navIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-charcoal"
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-deep-brown"
                   />
                 )}
               </button>
@@ -108,17 +108,17 @@ function MobileMenu({
         className="flex flex-col gap-1.5 p-2"
       >
         <span
-          className={`block w-5 h-px bg-charcoal transition-transform duration-300 ${
+          className={`block w-5 h-px bg-deep-brown transition-transform duration-300 ${
             isOpen ? "rotate-45 translate-y-1.5" : ""
           }`}
         />
         <span
-          className={`block w-5 h-px bg-charcoal transition-opacity duration-300 ${
+          className={`block w-5 h-px bg-deep-brown transition-opacity duration-300 ${
             isOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`block w-5 h-px bg-charcoal transition-transform duration-300 ${
+          className={`block w-5 h-px bg-deep-brown transition-transform duration-300 ${
             isOpen ? "-rotate-45 -translate-y-1.5" : ""
           }`}
         />
@@ -130,7 +130,7 @@ function MobileMenu({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute right-0 top-full mt-2 w-48 bg-offwhite border border-border rounded-lg shadow-xl py-2"
+            className="absolute right-0 top-full mt-2 w-48 bg-offwhite rounded-lg shadow-xl py-2"
           >
             {navItems.map((item) => (
               <button
@@ -139,7 +139,7 @@ function MobileMenu({
                   scrollToSection(item.id);
                   setIsOpen(false);
                 }}
-                className="block w-full text-left px-4 py-2 text-sm tracking-widest uppercase text-silver hover:text-charcoal transition-colors"
+                className="block w-full text-left px-4 py-3 text-sm tracking-widest uppercase text-silver hover:text-deep-brown transition-colors"
               >
                 {item.label}
               </button>

@@ -13,8 +13,9 @@
   --color-gold: #B8960C;
   --color-white: #FFFFFF;
   --color-light-gray: #F0EDE8;
+  --color-deep-brown: #3D2B1F;
 
-  --font-heading: var(--font-eb-garamond);
+  --font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: var(--font-inter);
 }
 
@@ -31,13 +32,9 @@ html {
 body {
   font-family: var(--font-inter);
   background-color: #F5F0E8;
-  color: #1A1A1A;
+  color: #3D2B1F;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-eb-garamond);
 }
 
 .scrollbar-hide {
