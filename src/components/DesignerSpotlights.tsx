@@ -23,7 +23,7 @@ export function DesignerSpotlights() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8 justify-center">
             {designerData.map((designer, index) => (
               <motion.div
                 key={designer.id}
@@ -34,22 +34,22 @@ export function DesignerSpotlights() {
                 onClick={() => setSelectedDesigner(designer)}
                 className="relative group cursor-pointer"
               >
-                <div className="relative h-[400px] overflow-hidden bg-white rounded-xl">
-                  <div className="relative z-10 p-8">
-                    <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-4">
+                <div className="relative h-[320px] overflow-hidden bg-white rounded-xl">
+                  <div className="relative z-10 p-6">
+                    <p className="font-body text-silver tracking-widest uppercase text-[10px] mb-3">
                       {designer.nationality}
                     </p>
-                    <h3 className="font-heading text-[14px] md:text-[16px] font-bold uppercase text-deep-brown mb-4 whitespace-nowrap overflow-hidden text-ellipsis px-6">
+                    <h3 className="font-heading text-[12px] md:text-[14px] font-bold uppercase text-deep-brown mb-3 whitespace-nowrap overflow-hidden text-ellipsis px-4">
                       {designer.name}
                     </h3>
-                    <p className="font-body text-silver text-[10px] px-6">{designer.period}</p>
+                    <p className="font-body text-silver text-[10px] px-4">{designer.period}</p>
                   </div>
 
-                  <div className="relative z-10 px-8 pb-8 flex-1">
-                    <p className="text-beige-dark text-[10px] font-medium mb-4">
+                  <div className="relative z-10 px-6 pb-6 flex-1">
+                    <p className="text-beige-dark text-[10px] font-medium mb-3">
                       {designer.title}
                     </p>
-                    <p className="font-body text-silver text-[10px] leading-relaxed mb-6 line-clamp-3">
+                    <p className="font-body text-silver text-[10px] leading-relaxed mb-4 line-clamp-3">
                       {designer.description}
                     </p>
                   </div>

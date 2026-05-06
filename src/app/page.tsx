@@ -10,13 +10,24 @@ export default function Home() {
     <div className="relative">
       <Navigation />
       <Hero />
-      <Timeline />
-      <DesignerSpotlights />
-      <Infographics />
+      
+      <div className="flex flex-col items-center">
+        <Timeline />
+      </div>
+      
+      <div className="flex flex-col items-center">
+        <DesignerSpotlights />
+      </div>
+      
+      <div className="flex flex-col items-center">
+        <Infographics />
+      </div>
 
-      <TrendQuiz />
+      <div className="flex flex-col items-center">
+        <TrendQuiz />
+      </div>
 
-      <div className="pb-20"></div>
+      <div className="pb-32"></div>
 
       <footer className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">

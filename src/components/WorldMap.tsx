@@ -57,14 +57,12 @@ export function WorldMap() {
   })).sort((a, b) => a.year - b.year);
 
   return (
-      <div>
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-2">
-              Cultural Impact Map
-            </h3>
-          </div>
-        <div className="flex gap-2">
+    <div>
+      <div className="flex flex-col items-center mb-8">
+        <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-4 text-center">
+          Cultural Impact Map
+        </h3>
+        <div className="flex gap-2 justify-center">
           {[1995, 1996, 1997, 1998, 1999].map((year) => (
             <button
               key={year}
@@ -83,7 +81,7 @@ export function WorldMap() {
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden bg-white p-6 md:p-8">
+      <div className="relative w-full overflow-hidden bg-white p-6 md:p-8 flex flex-col items-center">
         <svg
           viewBox="0 0 900 340"
           className="w-full h-auto"
