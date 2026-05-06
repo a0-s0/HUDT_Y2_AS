@@ -207,58 +207,6 @@ export function Infographics() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-xl p-6 md:p-8"
-        >
-          <h3 className="font-heading text-[28px] md:text-[32px] font-bold uppercase text-deep-brown mb-2 text-center">
-            Cultural Impact by Year
-          </h3>
-          <p className="font-body text-silver text-sm mb-6 text-center">
-            Relative influence of cultural events on fashion trends
-          </p>
-
-          <div className="h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={[
-                  { year: "1995", minimalism: 75, glamour: 30, cyber: 5, street: 45 },
-                  { year: "1996", minimalism: 55, glamour: 65, cyber: 10, street: 55 },
-                  { year: "1997", minimalism: 40, glamour: 55, cyber: 20, street: 50 },
-                  { year: "1998", minimalism: 30, glamour: 60, cyber: 30, street: 65 },
-                  { year: "1999", minimalism: 15, glamour: 45, cyber: 90, street: 70 },
-                ]}
-              >
-                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis
-                  dataKey="year"
-                  tick={{ fill: axisColor, fontSize: 12 }}
-                  axisLine={{ stroke: gridColor }}
-                />
-                <YAxis
-                  tick={{ fill: axisColor, fontSize: 10 }}
-                  axisLine={{ stroke: gridColor }}
-                />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#F5F0E8",
-                    border: "none",
-                    borderRadius: "8px",
-                    color: "#3D2B1F",
-                    fontFamily: "var(--font-inter)",
-                  }}
-                />
-                <Bar dataKey="minimalism" name="Minimalism" fill="#3D2B1F" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="glamour" name="Glamour" fill="#C4B5A0" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="cyber" name="Cyber" fill="#888888" radius={[3, 3, 0, 0]} />
-                <Bar dataKey="street" name="Street" fill="#A89880" radius={[3, 3, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
