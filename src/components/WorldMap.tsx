@@ -58,11 +58,11 @@ export function WorldMap() {
 
   return (
     <div>
-      <div className="relative w-full overflow-hidden bg-white p-8 md:p-12 flex flex-col items-center">
+      <div className="relative w-full overflow-hidden bg-white p-4 md:p-6 flex flex-col items-center">
         <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-4 text-center">
           Cultural Impact
         </h3>
-        <div className="flex gap-2 justify-center mb-6">
+        <div className="flex gap-2 justify-center mb-4">
           {[1995, 1996, 1997, 1998, 1999].map((year) => (
             <button
               key={year}
@@ -80,7 +80,7 @@ export function WorldMap() {
           ))}
         </div>
         <svg
-          viewBox="0 0 1000 400"
+          viewBox="0 0 1200 500"
           className="w-full h-auto"
           xmlns="http://www.w3.org/2000/svg"
         >
