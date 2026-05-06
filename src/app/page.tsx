@@ -27,7 +27,7 @@ export default function Home() {
         <Infographics />
       </div>
       
-      <div className="h-[15px]"></div>
+      <div className="h-[20px]"></div>
       
       <div className="flex flex-col items-center">
         <TrendQuiz />

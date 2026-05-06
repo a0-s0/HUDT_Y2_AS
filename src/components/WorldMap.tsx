@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { culturalImpactData, CulturalEvent } from "@/data/culturalImpactData";
 
 const fashionCapitals = [
-  { id: "new-york", name: "New York", x: 280, y: 170, label: "USA" },
-  { id: "paris", name: "Paris", x: 468, y: 158, label: "France" },
-  { id: "london", name: "London", x: 455, y: 148, label: "UK" },
-  { id: "milan", name: "Milan", x: 480, y: 165, label: "Italy" },
-  { id: "tokyo", name: "Tokyo", x: 790, y: 175, label: "Japan" },
+  { id: "new-york", name: "New York", x: 200, y: 150, label: "USA" },
+  { id: "paris", name: "Paris", x: 480, y: 130, label: "France" },
+  { id: "london", name: "London", x: 460, y: 120, label: "UK" },
+  { id: "milan", name: "Milan", x: 500, y: 140, label: "Italy" },
+  { id: "tokyo", name: "Tokyo", x: 780, y: 150, label: "Japan" },
 ];
 
 // Year-to-color mapping for the bar chart overlay
@@ -72,11 +72,11 @@ export function WorldMap() {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full max-w-none">
-        <div className="relative w-full overflow-hidden bg-white flex flex-col items-center rounded-2xl">
-          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center mt-12">
+        <div className="relative w-full overflow-hidden bg-white rounded-2xl">
+          <h3 className="font-heading text-[28px] md:text-[40px] font-bold uppercase text-deep-brown mb-6 text-center mt-8">
             Cultural Impact
           </h3>
-          <div className="flex gap-3 justify-center mb-8">
+          <div className="flex gap-3 justify-center mb-6">
             {[1995, 1996, 1997, 1998, 1999].map((year) => (
               <button
                 key={year}
@@ -94,24 +94,39 @@ export function WorldMap() {
             ))}
           </div>
           <svg
-            viewBox="0 0 800 400"
+            viewBox="0 0 1000 500"
             className="w-full h-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* World map fills the entire SVG */}
-            <g stroke="#E0D5C5" strokeWidth="0.8" fill="none">
-              <path d="M50,50 L150,30 L250,40 L320,60 L370,55 L420,80 L390,120 L440,140 L420,180 L380,200 L350,230 L300,220 L260,240 L220,200 L180,220 L140,180 L100,150 L60,100 Z" />
-              <path d="M350,240 L400,260 L420,300 L410,360 L380,380 L340,390 L320,360 L330,300 Z" />
-              <path d="M500,40 L560,30 L620,35 L660,45 L700,50 L720,70 L700,100 L680,130 L640,140 L600,150 L560,140 L540,110 L520,90 Z" />
-              <path d="M580,150 L620,160 L660,180 L680,220 L660,260 L640,300 L600,340 L560,320 L540,280 L550,220 Z" />
-              <path d="M700,40 L780,20 L900,30 L1000,40 L1100,60 L1180,80 L1220,120 L1200,170 L1160,200 L1100,220 L1020,210 L940,190 L860,170 L780,150 L720,120 L700,80 Z" />
-              <path d="M1100,240 L1160,230 L1220,240 L1240,280 L1220,320 L1180,340 L1140,330 L1110,300 Z" />
+            <g stroke="#E0D5C5" strokeWidth="1" fill="none">
+              {/* North America */}
+              <path d="M50,80 L150,60 L250,70 L320,90 L350,85 L380,100 L360,140 L400,160 L380,200 L340,220 L300,200 L260,220 L220,180 L180,200 L140,160 L100,130 L60,100 Z" />
+              <path d="M340,220 L380,240 L400,280 L390,320 L360,340 L320,330 L300,280 Z" />
+              {/* Central America */}
+              <path d="M280,240 L300,250 L310,270 L300,290 L280,280 Z" />
+              {/* South America */}
+              <path d="M320,320 L360,310 L420,320 L480,340 L500,380 L480,420 L440,440 L380,430 L340,400 L320,360 Z" />
+              {/* Europe */}
+              <path d="M450,60 L500,50 L560,55 L620,60 L660,70 L680,90 L660,120 L640,140 L600,150 L560,140 L520,130 L480,120 L460,100 L450,80 Z" />
+              {/* Africa */}
+              <path d="M480,150 L520,140 L580,150 L640,160 L680,180 L700,220 L720,280 L700,340 L680,380 L640,400 L580,410 L520,400 L480,380 L460,340 L440,280 L460,220 Z" />
+              {/* Asia */}
+              <path d="M680,50 L760,40 L860,50 L960,60 L1000,80 L980,120 L960,160 L920,200 L860,240 L800,280 L740,300 L700,280 L680,240 L660,200 L640,160 L660,120 L680,80 Z" />
+              {/* India */}
+              <path d="M720,200 L760,190 L780,220 L770,260 L740,280 L720,250 Z" />
+              {/* Southeast Asia */}
+              <path d="M800,240 L840,230 L860,250 L850,270 L820,280 L800,260 Z" />
+              {/* Japan */}
+              <path d="M880,180 L900,170 L920,180 L910,200 L890,210 L880,190 Z" />
+              {/* Australia */}
+              <path d="M880,360 L940,350 L980,360 L960,380 L920,390 L880,380 Z" />
             </g>
 
             {/* Cultural impact spots */}
             {filteredEvents.map((event, i) => {
               const isHovered = hoveredEvent?.year === event.year && hoveredEvent?.event === event.event;
-              const radius = (event.impact / 100) * 10 + 3;
+              const radius = (event.impact / 100) * 12 + 4;
 
               return (
                 <g key={`${event.year}-${i}`}>
@@ -164,7 +179,7 @@ export function WorldMap() {
                     y={event.y - radius - 5}
                     textAnchor="middle"
                     fill="#3D2B1F"
-                    fontSize="12"
+                    fontSize="14"
                     fontFamily="Helvetica Neue, Arial, sans-serif"
                     opacity={isHovered ? 1 : 0.7}
                   >
@@ -182,7 +197,7 @@ export function WorldMap() {
                   y={capital.y + 20}
                   textAnchor="middle"
                   fill="#888888"
-                  fontSize="10"
+                  fontSize="12"
                   fontFamily="Helvetica Neue, Arial, sans-serif"
                 >
                   {capital.name}
@@ -191,19 +206,19 @@ export function WorldMap() {
             ))}
 
             {/* Cultural Impact Bar Chart at bottom */}
-            <rect x="100" y="290" width="600" height="50" fill="#F5F0E8" rx="4" />
+            <rect x="100" y="400" width="800" height="60" fill="#F5F0E8" rx="4" />
             
             {yearChartData.map((item, i) => {
-              const barWidth = 100;
-              const x = 120 + i * (barWidth + 15);
-              const barHeight = (item.impact / 100) * 45;
+              const barWidth = 140;
+              const x = 120 + i * (barWidth + 20);
+              const barHeight = (item.impact / 100) * 55;
               const barColor = yearColors[item.year as keyof typeof yearColors] || "#3D2B1F";
 
               return (
                 <g key={item.year}>
                   <rect
                     x={x}
-                    y={290 + (45 - barHeight)}
+                    y={400 + (55 - barHeight)}
                     width={barWidth}
                     height={barHeight}
                     fill={barColor}
@@ -212,10 +227,10 @@ export function WorldMap() {
                   />
                   <text
                     x={x + barWidth / 2}
-                    y="355"
+                    y="475"
                     textAnchor="middle"
                     fill="#3D2B1F"
-                    fontSize="10"
+                    fontSize="12"
                     fontFamily="Helvetica Neue, Arial, sans-serif"
                     fontWeight="500"
                   >

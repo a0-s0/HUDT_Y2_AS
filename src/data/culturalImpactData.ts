@@ -1,8 +1,8 @@
 export interface CulturalEvent {
   year: number;
   event: string;
-  x: number; // Direct SVG x coordinate for 800x400 viewBox
-  y: number; // Direct SVG y coordinate for 800x400 viewBox
+  x: number; // Direct SVG x coordinate for 1000x500 viewBox
+  y: number; // Direct SVG y coordinate for 1000x500 viewBox
   impact: number; // 1-100 scale
   description: string;
 }
@@ -34,66 +34,66 @@ export const culturalImpactData: CulturalEvent[] = [
     description: "McQueen becomes Givenchy's creative director"
   },
 
-  // Events near Paris (x: 400-450, y: 100-140)
+  // Events near Paris (x: 450-500, y: 100-140)
   {
     year: 1996,
     event: "Gucci Revival",
-    x: 420,
-    y: 110,
+    x: 480,
+    y: 120,
     impact: 80,
     description: "Tom Ford transforms Gucci with sexy minimalism"
   },
   {
     year: 1996,
     event: "Dior Saddle Bag Launch",
-    x: 430,
-    y: 120,
+    x: 490,
+    y: 125,
     impact: 85,
     description: "John Galliano introduces iconic Saddle Bag"
   },
   {
     year: 1997,
     event: "Princess Diana's Death",
-    x: 440,
-    y: 115,
+    x: 500,
+    y: 120,
     impact: 95,
     description: "Fashion world mourns, influence on mourning attire"
   },
 
-  // Events near London (x: 380-420, y: 90-130)
+  // Events near London (x: 440-470, y: 110-130)
   {
     year: 1998,
     event: "Y2K Aesthetic Emerges",
-    x: 390,
-    y: 100,
+    x: 460,
+    y: 110,
     impact: 90,
     description: "Futuristic metallics and tech-inspired fashion"
   },
 
-  // Events near Milan (x: 430-460, y: 110-150)
+  // Events near Milan (x: 480-520, y: 130-150)
   {
     year: 1998,
     event: "Gianni Versace Assassination",
-    x: 450,
-    y: 130,
+    x: 510,
+    y: 140,
     impact: 92,
     description: "Fashion world shocked, legacy continues"
   },
 
-  // Events near Tokyo (x: 700-750, y: 120-180)
+  // Events near Tokyo (x: 850-900, y: 170-200)
   {
     year: 1999,
     event: "Y2K Panic Fashion",
-    x: 720,
-    y: 150,
+    x: 880,
+    y: 180,
     impact: 85,
     description: "Tech-wear and metallic fabrics dominate"
   },
   {
     year: 1999,
     event: "Logo Mania Peak",
-    x: 730,
-    y: 170,
+    x: 890,
+    y: 190,
     impact: 98,
     description: "Designer logos reach saturation point"
   },
