@@ -8,28 +8,28 @@ export interface CulturalEvent {
 }
 
 export const culturalImpactData: CulturalEvent[] = [
-  // Events near New York - East Coast USA (x: 890, y: 620)
+  // Events near New York - East Coast USA (x: 940, y: 650)
   {
     year: 1995,
     event: "Rise of Supermodels",
-    x: 890,
-    y: 620,
+    x: 940,
+    y: 650,
     impact: 75,
     description: "Kate Moss, Naomi Campbell, Cindy Crawford dominate fashion"
   },
   {
     year: 1995,
     event: "Grunge to Minimalism",
-    x: 888,
-    y: 622,
+    x: 938,
+    y: 652,
     impact: 70,
     description: "Marc Jacobs brings grunge to luxury fashion"
   },
   {
     year: 1997,
     event: "Alexander McQueen's Rise",
-    x: 892,
-    y: 618,
+    x: 942,
+    y: 648,
     impact: 85,
     description: "McQueen becomes Givenchy's creative director"
   },
