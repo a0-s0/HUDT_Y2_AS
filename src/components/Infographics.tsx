@@ -134,7 +134,7 @@ export function Infographics() {
             <h3 className="font-heading text-[20px] md:text-[24px] font-bold uppercase text-deep-brown mb-2 text-center">
               Logo Saturation Index
             </h3>
-            <p className="font-body text-silver text-sm mb-6 max-w-lg mx-auto text-center">
+            <p className="font-body text-sm mb-6 max-w-lg mx-auto text-center">
               The rise of designer logos vs. the decline of minimalism (1995—1999)
             </p>
 
