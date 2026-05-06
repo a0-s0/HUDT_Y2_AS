@@ -14,7 +14,7 @@
   --color-white: #FFFFFF;
   --color-light-gray: #F0EDE8;
 
-  --font-heading: var(--font-eb-garamond);
+  --font-heading: "Helvetica Neue", sans-serif;
   --font-body: var(--font-inter);
 }
 
@@ -37,7 +37,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-eb-garamond);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
 }
 
 .scrollbar-hide {
