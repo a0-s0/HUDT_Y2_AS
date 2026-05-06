@@ -4,11 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { culturalImpactData, CulturalEvent } from "@/data/culturalImpactData";
 
-// City coordinates for 3024x1964 Mercator projection - aligned with map paths
+// City coordinates for 3024x1964 Mercator projection - geographically aligned
 const fashionCapitals = [
-  { id: "new-york", name: "New York", x: 750, y: 650, label: "USA" },
+  { id: "new-york", name: "New York", x: 890, y: 620, label: "USA" },
   { id: "paris", name: "Paris", x: 1520, y: 480, label: "France" },
-  { id: "london", name: "London", x: 1480, y: 460, label: "UK" },
+  { id: "london", name: "London", x: 1480, y: 440, label: "UK" },
   { id: "milan", name: "Milan", x: 1560, y: 510, label: "Italy" },
   { id: "tokyo", name: "Tokyo", x: 2620, y: 560, label: "Japan" },
 ];
@@ -86,36 +86,36 @@ export function WorldMap() {
           className="w-full h-auto"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* World map - fills full 3024x1964 viewBox with thick deep brown strokes */}
+          {/* World map - geographically accurate simplified outlines */}
           <g stroke="#3D2B1F" strokeWidth="20" fill="none">
-            {/* North America - spans left side */}
-            <path d="M200,280 L350,250 L500,240 L650,280 L780,350 L860,450 L880,550 L850,650 L800,750 L720,800 L620,820 L520,800 L440,740 L370,670 L320,600 L280,520 L240,440 Z" />
+            {/* North America - correct shape with Alaska, Canada, USA */}
+            <path d="M280,200 L380,180 L480,190 L580,220 L680,260 L760,320 L820,400 L850,480 L860,560 L840,620 L890,650 L920,680 L900,720 L840,740 L780,760 L720,780 L660,800 L600,820 L540,800 L480,760 L420,700 L370,640 L320,570 L280,500 L250,420 L230,340 Z" />
             {/* Central America */}
-            <path d="M580,830 L620,860 L650,900 L660,950 L640,980 L580,960 L560,920 Z" />
-            {/* South America - large, right side */}
-            <path d="M620,950 L700,920 L800,950 L920,1050 L1000,1200 L1020,1400 L960,1550 L860,1620 L740,1580 L650,1480 L590,1350 L560,1200 L540,1050 Z" />
-            {/* Europe - centered */}
-            <path d="M1420,280 L1480,250 L1540,260 L1600,300 L1620,360 L1610,420 L1580,460 L1550,480 L1510,470 L1480,440 L1460,400 L1450,360 Z" />
+            <path d="M560,820 L600,850 L630,890 L640,940 L620,970 L580,960 L560,930 L550,890 Z" />
+            {/* South America - better shape */}
+            <path d="M600,960 L680,940 L760,960 L840,1020 L900,1120 L920,1240 L900,1360 L860,1460 L800,1540 L730,1580 L660,1560 L600,1500 L560,1400 L530,1280 L520,1160 L540,1040 Z" />
+            {/* Europe - more accurate */}
+            <path d="M1440,260 L1500,240 L1560,250 L1600,280 L1620,340 L1610,400 L1580,440 L1550,460 L1510,450 L1480,420 L1460,380 L1450,340 L1430,300 Z" />
             {/* UK/Ireland */}
-            <path d="M1470,340 L1490,320 L1510,340 L1510,380 L1490,390 L1470,370 Z" />
-            {/* Africa - large continent */}
-            <path d="M1480,500 L1540,520 L1620,580 L1680,680 L1700,800 L1680,1000 L1620,1150 L1540,1200 L1460,1180 L1400,1100 L1360,980 L1340,850 L1340,720 L1360,620 Z" />
-            {/* Russia/Northern Asia - spans across top */}
-            <path d="M1550,180 L1700,160 L1900,150 L2100,160 L2300,180 L2480,220 L2580,280 L2600,340 L2580,380 L2520,400 L2420,390 L2280,370 L2100,350 L1900,330 L1750,310 L1650,280 Z" />
+            <path d="M1460,320 L1490,300 L1510,320 L1510,360 L1490,370 L1470,350 Z" />
+            {/* Africa - better shape */}
+            <path d="M1500,480 L1560,500 L1640,560 L1700,660 L1720,780 L1700,900 L1660,1000 L1600,1080 L1540,1120 L1460,1100 L1400,1040 L1360,940 L1340,820 L1340,700 L1360,600 L1400,520 Z" />
+            {/* Russia/Northern Asia */}
+            <path d="M1580,160 L1720,140 L1900,130 L2100,140 L2300,160 L2500,200 L2600,260 L2620,320 L2600,360 L2540,380 L2440,370 L2280,350 L2100,330 L1900,310 L1750,290 L1650,260 Z" />
             {/* Middle East */}
-            <path d="M1680,600 L1760,640 L1800,700 L1780,750 L1720,730 Z" />
+            <path d="M1700,580 L1780,620 L1820,680 L1800,730 L1740,710 L1700,670 Z" />
             {/* South Asia / India */}
-            <path d="M1900,620 L1980,650 L2050,720 L2040,800 L2000,840 L1950,820 L1920,760 L1900,700 Z" />
+            <path d="M1920,600 L2000,630 L2060,700 L2050,780 L2010,820 L1960,800 L1930,740 L1910,680 Z" />
             {/* East Asia / China */}
-            <path d="M2180,320 L2300,300 L2440,340 L2520,400 L2540,480 L2500,540 L2440,560 L2380,540 L2340,500 L2300,440 L2260,380 L2220,340 Z" />
+            <path d="M2200,300 L2320,280 L2460,320 L2540,380 L2560,460 L2520,520 L2460,540 L2400,520 L2360,480 L2320,420 L2280,360 L2240,320 Z" />
             {/* Southeast Asia */}
-            <path d="M2380,600 L2440,640 L2480,700 L2460,750 L2420,740 Z" />
+            <path d="M2400,580 L2460,620 L2500,680 L2480,730 L2440,720 L2400,680 Z" />
             {/* Japan */}
-            <path d="M2580,400 L2640,440 L2680,500 L2660,550 L2620,530 Z" />
-            {/* Australia - bottom right */}
-            <path d="M2440,1200 L2560,1150 L2680,1180 L2740,1240 L2760,1320 L2720,1400 L2660,1440 L2580,1430 L2500,1380 L2460,1300 L2440,1240 Z" />
+            <path d="M2600,380 L2660,420 L2700,480 L2680,530 L2640,510 Z" />
+            {/* Australia */}
+            <path d="M2460,1180 L2580,1140 L2700,1160 L2760,1220 L2780,1300 L2760,1380 L2700,1420 L2620,1410 L2540,1360 L2500,1280 L2460,1220 Z" />
             {/* New Zealand */}
-            <path d="M2780,1480 L2810,1520 L2800,1560 L2770,1540 Z" />
+            <path d="M2800,1460 L2840,1500 L2830,1540 L2800,1520 Z" />
           </g>
 
           {/* Cultural impact spots */}

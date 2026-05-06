@@ -8,92 +8,92 @@ export interface CulturalEvent {
 }
 
 export const culturalImpactData: CulturalEvent[] = [
-  // Events near New York - East Coast USA (x: 558-562, y: 684-688)
+  // Events near New York - East Coast USA (x: 890, y: 620)
   {
     year: 1995,
     event: "Rise of Supermodels",
-    x: 560,
-    y: 686,
+    x: 890,
+    y: 620,
     impact: 75,
     description: "Kate Moss, Naomi Campbell, Cindy Crawford dominate fashion"
   },
   {
     year: 1995,
     event: "Grunge to Minimalism",
-    x: 558,
-    y: 688,
+    x: 888,
+    y: 622,
     impact: 70,
     description: "Marc Jacobs brings grunge to luxury fashion"
   },
   {
     year: 1997,
     event: "Alexander McQueen's Rise",
-    x: 560,
-    y: 686,
+    x: 892,
+    y: 618,
     impact: 85,
     description: "McQueen becomes Givenchy's creative director"
   },
 
-  // Events near Paris (x: 1416-1420, y: 598-602)
+  // Events near Paris (x: 1520, y: 480)
   {
     year: 1996,
     event: "Gucci Revival",
-    x: 1418,
-    y: 600,
+    x: 1520,
+    y: 480,
     impact: 80,
     description: "Tom Ford transforms Gucci with sexy minimalism"
   },
   {
     year: 1996,
     event: "Dior Saddle Bag Launch",
-    x: 1420,
-    y: 602,
+    x: 1522,
+    y: 482,
     impact: 85,
     description: "John Galliano introduces iconic Saddle Bag"
   },
   {
     year: 1997,
     event: "Princess Diana's Death",
-    x: 1422,
-    y: 599,
+    x: 1524,
+    y: 479,
     impact: 95,
     description: "Fashion world mourns, influence on mourning attire"
   },
 
-  // Events near London (x: 1378-1383, y: 573-577)
+  // Events near London (x: 1480, y: 440)
   {
     year: 1998,
     event: "Y2K Aesthetic Emerges",
-    x: 1381,
-    y: 575,
+    x: 1480,
+    y: 440,
     impact: 90,
     description: "Futuristic metallics and tech-inspired fashion"
   },
 
-  // Events near Milan (x: 1454-1458, y: 635-639)
+  // Events near Milan (x: 1560, y: 510)
   {
     year: 1998,
     event: "Gianni Versace Assassination",
-    x: 1456,
-    y: 637,
+    x: 1560,
+    y: 510,
     impact: 92,
     description: "Fashion world shocked, legacy continues"
   },
 
-  // Events near Tokyo (x: 2361-2365, y: 684-688)
+  // Events near Tokyo (x: 2620, y: 560)
   {
     year: 1999,
     event: "Y2K Panic Fashion",
-    x: 2363,
-    y: 686,
+    x: 2620,
+    y: 560,
     impact: 85,
     description: "Tech-wear and metallic fabrics dominate"
   },
   {
     year: 1999,
     event: "Logo Mania Peak",
-    x: 2365,
-    y: 688,
+    x: 2622,
+    y: 562,
     impact: 98,
     description: "Designer logos reach saturation point"
   },
